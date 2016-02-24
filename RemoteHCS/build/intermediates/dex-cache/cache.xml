@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/jeltierney/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.3.2/559b70ac8a0d5cad611da4223137a920147201ba/jackson-core-2.3.2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="559b70ac8a0d5cad611da4223137a920147201ba">
+        <dex dex="/Users/jeltierney/Documents/Android SDK/RemoteHCS/app/build/intermediates/pre-dexed/debug/jackson-core-2.3.2-85252dd1af41d86f67f7ff5e1d6fde985a30d846.jar" />
+    </item>
+    <item
+        jar="/Users/jeltierney/Documents/Android SDK/RemoteHCS/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="57ae0d750ff83f0c738d21720224ac7ea866a094">
+        <dex dex="/Users/jeltierney/Documents/Android SDK/RemoteHCS/app/build/intermediates/pre-dexed/debug/classes-2be68e56dc26750e8d1d8f02cb5dfc22d8ef3db8.jar" />
+    </item>
+    <item
+        jar="/Users/jeltierney/Documents/Android SDK/RemoteHCS/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="3f151e49c316a5ab2c065969a3b3b55ef9b393fc">
+        <dex dex="/Users/jeltierney/Documents/Android SDK/RemoteHCS/app/build/intermediates/pre-dexed/debug/classes-adce16a2f1f51522651990b2c5c0f5cc000651ff.jar" />
+    </item>
+    <item
+        jar="/Users/jeltierney/Documents/Android SDK/RemoteHCS/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.0/jars/libs/internal_impl-23.1.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8716243bf04bae8d6c9ca94d27b9a9be7236f0a3">
+        <dex dex="/Users/jeltierney/Documents/Android SDK/RemoteHCS/app/build/intermediates/pre-dexed/debug/internal_impl-23.1.0-37831692606b6b7b50a67e4686baaf48489ddf8a.jar" />
+    </item>
+    <item
+        jar="/Users/jeltierney/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.3.0/f5e853a20b60758922453d56f9ae1e64af5cb3da/jackson-annotations-2.3.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="f5e853a20b60758922453d56f9ae1e64af5cb3da">
+        <dex dex="/Users/jeltierney/Documents/Android SDK/RemoteHCS/app/build/intermediates/pre-dexed/debug/jackson-annotations-2.3.0-244eadaf6af5f0887765607ff50187a439c2e681.jar" />
+    </item>
+    <item
+        jar="/Users/jeltierney/Documents/Android SDK/RemoteHCS/app/libs/itextpdf-5.5.8.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="329e8b0c76b3265cea48e746ac794eaee6828b7b">
+        <dex dex="/Users/jeltierney/Documents/Android SDK/RemoteHCS/app/build/intermediates/pre-dexed/debug/itextpdf-5.5.8-dfeefbee1f79aa2852aa2c3e8038e502f1a62e47.jar" />
+    </item>
+    <item
+        jar="/Users/jeltierney/Documents/Android SDK/RemoteHCS/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="ddde541c289c8b816a8f8fd6c325d80788c522a6">
+        <dex dex="/Users/jeltierney/Documents/Android SDK/RemoteHCS/app/build/intermediates/pre-dexed/debug/classes-42f7dced8f744e3242d424b9bb80b9eb4db65b56.jar" />
+    </item>
+    <item
+        jar="/Users/jeltierney/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.1.0/support-annotations-23.1.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="92e3fc113ec3ee36b64603a38857b95700025633">
+        <dex dex="/Users/jeltierney/Documents/Android SDK/RemoteHCS/app/build/intermediates/pre-dexed/debug/support-annotations-23.1.0-7865b62194a5dda01aa04cffc91adb61c47439f3.jar" />
+    </item>
+    <item
+        jar="/Users/jeltierney/Documents/Android SDK/RemoteHCS/app/libs/javax.mail-1.5.5.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="ffcd34b5de820f35bcc9303649cf6ab2c65ad44e">
+        <dex dex="/Users/jeltierney/Documents/Android SDK/RemoteHCS/app/build/intermediates/pre-dexed/debug/javax.mail-1.5.5-32efb2c856af90db456666a3324a7853d7d0576b.jar" />
+    </item>
+    <item
+        jar="/Users/jeltierney/.gradle/caches/modules-2/files-2.1/org.springframework.android/spring-android-core/1.0.1.RELEASE/e68f0e8e4b636ee30c4de58953be38d9b72a5e3b/spring-android-core-1.0.1.RELEASE.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="e68f0e8e4b636ee30c4de58953be38d9b72a5e3b">
+        <dex dex="/Users/jeltierney/Documents/Android SDK/RemoteHCS/app/build/intermediates/pre-dexed/debug/spring-android-core-1.0.1.RELEASE-14ed40de3a5c5b09996cc8b2b2ac343f5648515f.jar" />
+    </item>
+    <item
+        jar="/Users/jeltierney/Documents/Android SDK/RemoteHCS/app/build/intermediates/exploded-aar/com.android.support/design/23.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="19026d31f5d3ae868db81319671a642be5fbba08">
+        <dex dex="/Users/jeltierney/Documents/Android SDK/RemoteHCS/app/build/intermediates/pre-dexed/debug/classes-2b05432d6dbcd5d2a754ba4650deffbe5c1b0e6d.jar" />
+    </item>
+    <item
+        jar="/Users/jeltierney/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.3.2/c75edc740a6d8cb1cef6fa82fa594e0bce561916/jackson-databind-2.3.2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="c75edc740a6d8cb1cef6fa82fa594e0bce561916">
+        <dex dex="/Users/jeltierney/Documents/Android SDK/RemoteHCS/app/build/intermediates/pre-dexed/debug/jackson-databind-2.3.2-605969ee0817c9de7b2e0a3296956c632104c2b0.jar" />
+    </item>
+    <item
+        jar="/Users/jeltierney/Documents/Android SDK/RemoteHCS/app/libs/activation.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8acf42612ad530a4fbf4058982555394298b4ed8">
+        <dex dex="/Users/jeltierney/Documents/Android SDK/RemoteHCS/app/build/intermediates/pre-dexed/debug/activation-89d2d58a69d8775af418d1aa5dde2343ce9dcab9.jar" />
+    </item>
+    <item
+        jar="/Users/jeltierney/.gradle/caches/modules-2/files-2.1/org.springframework.android/spring-android-rest-template/1.0.1.RELEASE/e132d929bd181941f79b0d63edafb8a86ae6fd33/spring-android-rest-template-1.0.1.RELEASE.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="e132d929bd181941f79b0d63edafb8a86ae6fd33">
+        <dex dex="/Users/jeltierney/Documents/Android SDK/RemoteHCS/app/build/intermediates/pre-dexed/debug/spring-android-rest-template-1.0.1.RELEASE-1b2eaba38a828a77832602b6228ed103935774cc.jar" />
+    </item>
+
+</items>

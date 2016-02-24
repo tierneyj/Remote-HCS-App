@@ -1,0 +1,123 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/china"
+    tools:context=".FullscreenActivity">
+
+    <RelativeLayout
+        android:id="@+id/fullscreen_content_controls"
+        android:fitsSystemWindows="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp">
+
+        <LinearLayout
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:id="@+id/remote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:textSize="50sp"
+                android:text="@string/REMOTE" />
+
+            <TextView android:id="@+id/plus_sign"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:textSize="50sp"
+                android:text="@string/fa_plus_circle" />
+
+            <TextView android:id="@+id/hcs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:textSize="50sp"
+                android:text="@string/HCS" />
+
+        </LinearLayout>
+
+            <Button
+                android:id="@+id/dummy_button"
+                style="?metaButtonBarButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:layout_below="@id/logo"
+                android:layout_marginTop="375dp"
+                android:text="@string/LOGIN"
+                android:textColor="#ffffff"
+                android:textSize="30sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/login"
+        android:fitsSystemWindows="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#19336F">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_centerInParent="true">
+            <EditText
+                android:layout_width="400dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/username"
+                android:textSize="30sp"
+                android:hint="USERNAME"
+                android:textColorHint="#ffffff"
+                android:textColor="#ffffff"
+                android:textAlignment="center"
+                android:minWidth="50dp"
+                android:layout_centerHorizontal="true"
+                android:maxLines="1"
+                android:nestedScrollingEnabled="false" />
+
+            <EditText
+                android:layout_width="400dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/username"
+                android:layout_marginTop="30dp"
+                android:hint="PASSWORD"
+                android:textSize="30sp"
+                android:textColorHint="#ffffff"
+                android:textColor="#ffffff"
+                android:textAlignment="center"
+                android:inputType="textPassword"
+                android:id="@+id/password"
+                android:layout_centerHorizontal="true"
+                android:maxLines="1" />
+
+            <Button
+                android:text="@string/Submit"
+                style="?metaButtonBarButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:textColor="#ffffff"
+                android:textSize="30sp"
+                android:id="@+id/submit"
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/password"
+                android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</FrameLayout>

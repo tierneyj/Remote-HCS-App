@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Remote HCS</string>
+
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="fa_plus_circle">&#xf055;</string>
+    <string name="REMOTE">REMOTE</string>
+    <string name="HCS">HCS</string>
+    <string name="LOGIN">LOGIN</string>
+    <string name="Submit">Submit</string>
+    <string name="title_activity_veiw_patient_data">VeiwPatientDataActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_view_patient_record">ViewPatientRecordActivity</string>
+    <string name="title_activity_view_record">ViewRecordActivity</string>
+
+
+</resources>
+
