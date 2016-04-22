@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/searchScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/searchViewButtons">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="@string/fname"
+                android:ems="10"
+                android:id="@+id/fnameEditText"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="25dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginLeft="50dp"
+                android:textSize="20dp"/>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:id="@+id/lnameEditText"
+                android:hint="@string/lname"
+                android:layout_below="@+id/fnameEditText"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="25dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginLeft="50dp"
+                android:textSize="20dp"/>
+
+            <EditText
+                android:layout_below="@+id/dobEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:inputType="textPersonName"
+                android:hint="@string/gender"
+                android:ems="10"
+                android:id="@+id/genderEditText"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="25dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginLeft="50dp"
+                android:textSize="20dp"/>
+
+            <EditText
+                android:layout_below="@+id/lnameEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:inputType="textPersonName"
+                android:hint="@string/date_of_birth"
+                android:ems="10"
+                android:id="@+id/dobEditText"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="25dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginLeft="50dp"
+                android:textSize="20dp"/>
+
+            <EditText
+                android:layout_below="@+id/genderEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:inputType="textPersonName"
+                android:hint="@string/marital_status"
+                android:ems="10"
+                android:id="@+id/maritalStatusEditText"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="25dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginLeft="50dp"
+                android:textSize="20dp"/>
+
+            <EditText
+                android:layout_below="@+id/maritalStatusEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:inputType="textPersonName"
+                android:hint="@string/Address"
+                android:ems="10"
+                android:id="@+id/addressEditText"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="25dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginLeft="50dp"
+                android:textSize="20dp"/>
+
+            <EditText
+                android:layout_below="@+id/addressEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:inputType="textPersonName"
+                android:hint="@string/city"
+                android:ems="10"
+                android:id="@+id/cityEditText"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="25dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginLeft="50dp"
+                android:textSize="20dp"/>
+
+            <EditText
+                android:layout_below="@+id/cityEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:inputType="textPersonName"
+                android:hint="@string/state"
+                android:ems="10"
+                android:id="@+id/stateEditText"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="25dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginLeft="50dp"
+                android:textSize="20dp"/>
+
+            <EditText
+                android:layout_below="@+id/stateEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:inputType="textPersonName"
+                android:hint="@string/postal_code"
+                android:ems="10"
+                android:id="@+id/zipEditText"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="25dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginLeft="50dp"
+                android:textSize="20dp"/>
+
+            <EditText
+                android:layout_below="@+id/zipEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:inputType="textPersonName"
+                android:hint="@string/country_code"
+                android:ems="10"
+                android:id="@+id/countryCodeEditText"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="25dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginLeft="50dp"
+                android:textSize="20dp"/>
+
+            <EditText
+                android:layout_below="@+id/countryCodeEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:inputType="textPersonName"
+                android:hint="@string/email"
+                android:ems="10"
+                android:id="@+id/emailEditText"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="25dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginLeft="50dp"
+                android:textSize="20dp"/>
+
+            <EditText
+                android:layout_below="@+id/emailEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:inputType="textPersonName"
+                android:hint="@string/home_phone"
+                android:ems="10"
+                android:id="@+id/homePhoneEditText"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="25dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginLeft="50dp"
+                android:textSize="20dp"/>
+
+            <EditText
+                android:layout_below="@+id/homePhoneEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:inputType="textPersonName"
+                android:hint="@string/cell_phone"
+                android:ems="10"
+                android:id="@+id/cellPhoneEditText"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="25dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginLeft="50dp"
+                android:textSize="20dp"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/searchViewButtons"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="25dp"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/createButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:text="Create"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

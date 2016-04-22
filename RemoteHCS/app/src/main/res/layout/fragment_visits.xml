@@ -1,0 +1,220 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.remotehcs.remotehcs.activity.VisitsFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin">
+
+        <ListView
+            android:layout_width="wrap_content"
+            android:id="@+id/listView"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"/>
+
+
+        <!--
+
+        <TextView
+            android:id="@+id/genderLabel"
+            android:layout_below="@+id/dobValue"
+            android:layout_marginTop="50dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="@string/gender"/>
+
+        <TextView
+            android:id="@+id/genderValue"
+            android:layout_below="@id/genderLabel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textSize="30dp"
+            android:text="Male" />
+
+        <TextView
+            android:id="@+id/maritalStatusLabel"
+            android:layout_below="@+id/genderValue"
+            android:layout_marginTop="50dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="@string/name"/>
+
+        <TextView
+            android:id="@+id/maritalStatusValue"
+            android:layout_below="@id/maritalStatusLabel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textSize="30dp"
+            android:text="Single" />
+
+        <TextView
+            android:id="@+id/emailLabel"
+            android:layout_below="@+id/maritalStatusValue"
+            android:layout_marginTop="50dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="@string/email"/>
+
+        <TextView
+            android:id="@+id/emailValue"
+            android:layout_below="@id/emailLabel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textSize="30dp"
+            android:text="tierneyj@bu.edu" />
+
+        <TextView
+            android:id="@+id/streetLabel"
+            android:layout_below="@+id/emailValue"
+            android:layout_marginTop="50dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="@string/street"/>
+
+        <TextView
+            android:id="@+id/streetValue"
+            android:layout_below="@id/streetLabel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textSize="30dp"
+            android:text="Commonwealth Ave." />
+
+        <TextView
+            android:id="@+id/postalCodeLabel"
+            android:layout_below="@+id/streetValue"
+            android:layout_marginTop="50dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="@string/postal_code"/>
+
+        <TextView
+            android:id="@+id/postalCodeValue"
+            android:layout_below="@id/postalCodeLabel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textSize="30dp"
+            android:text="02115" />
+
+        <TextView
+            android:id="@+id/cityLabel"
+            android:layout_below="@+id/postalCodeValue"
+            android:layout_marginTop="50dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="@string/city"/>
+
+        <TextView
+            android:id="@+id/cityValue"
+            android:layout_below="@id/cityLabel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textSize="30dp"
+            android:text="Boston" />
+
+        <TextView
+            android:id="@+id/stateLabel"
+            android:layout_below="@+id/cityValue"
+            android:layout_marginTop="50dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="@string/state"/>
+
+        <TextView
+            android:id="@+id/stateValue"
+            android:layout_below="@id/stateLabel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textSize="30dp"
+            android:text="MA" />
+
+        <TextView
+            android:id="@+id/countryCodeLabel"
+            android:layout_below="@+id/stateValue"
+            android:layout_marginTop="50dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="@string/country_code"/>
+
+        <TextView
+            android:id="@+id/countryCodeValue"
+            android:layout_below="@id/countryCodeLabel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textSize="30dp"
+            android:text="1" />
+
+        <TextView
+            android:id="@+id/homePhoneLabel"
+            android:layout_below="@+id/countryCodeValue"
+            android:layout_marginTop="50dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="@string/home_phone"/>
+
+        <TextView
+            android:id="@+id/homePhoneValue"
+            android:layout_below="@id/homePhoneLabel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textSize="30dp"
+            android:text="555-555-5555" />
+
+        <TextView
+            android:id="@+id/cellPhoneLabel"
+            android:layout_below="@+id/homePhoneValue"
+            android:layout_marginTop="50dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="@string/cell_phone"/>
+
+        <TextView
+            android:id="@+id/cellPhoneValue"
+            android:layout_below="@id/cellPhoneLabel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textSize="30dp"
+            android:text="777-777-7777" />
+
+        <Button
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cellPhoneValue"
+            android:layout_marginTop="50dp"
+            android:gravity="center_horizontal"
+            android:textSize="30dp"
+            android:text="@string/add_visit"/>
+
+        -->
+
+    </RelativeLayout>
+
+</ScrollView>

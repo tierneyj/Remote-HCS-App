@@ -1,0 +1,19 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.remotehcs.remotehcs.activity.NextPatientFragment">
+
+    <include android:id="@+id/searchView" layout="@layout/patient_search"/>
+
+    <include android:id="@+id/resultsView" layout="@layout/results"
+        android:visibility="gone"/>
+
+    <include android:id="@+id/noMatchesView" layout="@layout/no_matches"
+        android:visibility="gone"/>
+
+    <include android:id="@+id/newPatientView" layout="@layout/patient_info"
+        android:visibility="gone"/>
+
+</RelativeLayout>
