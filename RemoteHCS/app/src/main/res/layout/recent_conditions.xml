@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/topView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
+
+        <TextView
+            android:id="@+id/dryMouthLabel"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:textSize="25sp"
+            android:text="@string/dry_mouth_question"/>
+
+        <RadioGroup
+            android:id="@+id/dryMouthRadioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dryMouthLabel"
+            android:orientation="horizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp">
+
+            <RadioButton
+                android:id="@+id/dryMouthRadioYes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Yes"
+                android:textSize="25sp"
+                android:layout_marginRight="30dp"/>
+
+            <RadioButton
+                android:id="@+id/dryMouthRadioNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No"
+                android:textSize="25sp"
+                android:layout_marginLeft="30dp"/>
+
+        </RadioGroup>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/middleView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@+id/topView"
+        android:layout_above="@+id/bottomView"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/numbnessLabel"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:text="@string/numbness_question"/>
+
+        <RadioGroup
+            android:id="@+id/numbnessRadioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/numbnessLabel"
+            android:orientation="horizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp">
+
+            <RadioButton
+                android:id="@+id/numbnessRadioYes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Yes"
+                android:textSize="25sp"
+                android:layout_marginRight="30dp"/>
+
+            <RadioButton
+                android:id="@+id/numbnessRadioNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No"
+                android:textSize="25sp"
+                android:layout_marginLeft="30dp"/>
+
+        </RadioGroup>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/bottomView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:id="@+id/dizzinessLabel"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:text="@string/dizziness_question"/>
+
+
+        <RadioGroup
+            android:id="@+id/dizzinessRadioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dizzinessLabel"
+            android:orientation="horizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp">
+
+            <RadioButton
+                android:id="@+id/dizzinessRadioYes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Yes"
+                android:textSize="25sp"
+                android:layout_marginRight="30dp"/>
+
+            <RadioButton
+                android:id="@+id/dizzinessRadioNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No"
+                android:textSize="25sp"
+                android:layout_marginLeft="30dp"/>
+
+        </RadioGroup>
+
+    </RelativeLayout>
+
+</RelativeLayout>

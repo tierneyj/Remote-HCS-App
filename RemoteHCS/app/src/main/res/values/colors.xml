@@ -5,5 +5,8 @@
     <color name="textColorPrimary">#FFFFFF</color>
     <color name="windowBackground">#FFFFFF</color>
     <color name="navigationBarColor">#000000</color>
-    <color name="colorAccent">#EE6363</color>
+    <!--<color name="colorAccent">#EE6363</color>-->
+    <color name="colorAccent">#628198</color>
+    <color name="textButton">#628198</color>
+    <color name="textButtonPressed">#000000</color>
 </resources>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/topView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
+
+        <TextView
+            android:id="@+id/tobaccoLabel"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:text="@string/do_you_smoke"/>
+
+        <RadioGroup
+            android:id="@+id/smokingRadioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tobaccoLabel"
+            android:orientation="horizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp">
+
+            <RadioButton
+                android:id="@+id/smokingRadioYes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Yes"
+                android:textSize="25sp"
+                android:layout_marginRight="30dp"/>
+
+            <RadioButton
+                android:id="@+id/smokingRadioNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No"
+                android:textSize="25sp"
+                android:layout_marginLeft="30dp"/>
+
+        </RadioGroup>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/middleView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@+id/topView"
+        android:layout_above="@+id/bottomView"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/relativesDiabetesLabel"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:text="@string/relatives_diabetes"/>
+
+        <RadioGroup
+            android:id="@+id/diabetesRadioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/relativesDiabetesLabel"
+            android:orientation="horizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp">
+
+            <RadioButton
+                android:id="@+id/diabetesRadioYes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Yes"
+                android:textSize="25sp"
+                android:layout_marginRight="30dp"/>
+
+            <RadioButton
+                android:id="@+id/diabetesRadioNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No"
+                android:textSize="25sp"
+                android:layout_marginLeft="30dp"/>
+
+        </RadioGroup>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/bottomView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:id="@+id/relativesHypertensionLabel"
+            android:gravity="center"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:text="@string/relatives_hypertension"/>
+
+
+        <RadioGroup
+            android:id="@+id/hypertensionRadioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/relativesHypertensionLabel"
+            android:orientation="horizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp">
+
+            <RadioButton
+                android:id="@+id/hypertensionRadioYes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Yes"
+                android:textSize="25sp"
+                android:layout_marginRight="30dp"/>
+
+            <RadioButton
+                android:id="@+id/hypertensionRadioNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No"
+                android:textSize="25sp"
+                android:layout_marginLeft="30dp"/>
+
+        </RadioGroup>
+
+    </RelativeLayout>
+
+</RelativeLayout>

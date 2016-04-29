@@ -63,6 +63,7 @@
             android:layout_centerInParent="true"
             android:gravity="center"
             android:hint="@string/username"
+            android:text="admin"
             android:textAlignment="center"
             android:textColor="#ffffff"
             android:inputType="textWebEditText"
@@ -78,6 +79,7 @@
             android:gravity="center"
             android:textAlignment="center"
             android:hint="@string/password"
+            android:text="seniordesign15"
             android:textColor="#ffffff"
             android:inputType="textWebPassword"
             android:textSize="25dp"/>

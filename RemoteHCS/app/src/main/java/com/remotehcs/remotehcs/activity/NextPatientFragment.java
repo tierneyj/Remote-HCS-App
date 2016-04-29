@@ -127,7 +127,7 @@ public class NextPatientFragment extends Fragment {
         EditText fnameEditText = (EditText) mSearch.findViewById(R.id.fnameEditText);
         EditText lnameEditText = (EditText) mSearch.findViewById(R.id.lnameEditText);
 
-        String URL = "http://54.165.25.47/api/records/patient-data";
+        String URL = "https://www.remotehcs.com/api/records/patient-data";
 
         Boolean first = true;
 

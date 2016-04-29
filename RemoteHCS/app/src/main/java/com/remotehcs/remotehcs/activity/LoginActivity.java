@@ -95,7 +95,7 @@ public class LoginActivity extends AppCompatActivity {
                 MultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
                 map.add("username", username);
                 map.add("password", password);
-                final String url = "http://54.165.25.47/api/token/";
+                final String url = "https://www.remotehcs.com/api/token/";
 
                 HttpHeaders headers = new HttpHeaders();
                 headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);

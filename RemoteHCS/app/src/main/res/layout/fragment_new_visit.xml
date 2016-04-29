@@ -6,8 +6,159 @@
     tools:context="com.remotehcs.remotehcs.activity.NewVisitFragment">
 
     <TextView
+        android:id="@+id/titleLabel"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hi"/>
+        android:textSize="30sp"
+        android:text="@string/medical_history"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_above="@+id/progessButtons"
+        android:layout_below="@+id/titleLabel">
+
+        <include
+            android:id="@+id/historyView"
+            layout="@layout/edit_history_data"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="125dp"
+            android:layout_marginBottom="125dp"/>
+
+        <include
+            android:id="@+id/conditionsView"
+            layout="@layout/conditions"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="125dp"
+            android:layout_marginBottom="125dp"
+            android:visibility="gone"/>
+
+        <include
+            android:id="@+id/recentConditionsView"
+            layout="@layout/recent_conditions"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="125dp"
+            android:layout_marginBottom="125dp"
+            android:visibility="gone"/>
+
+        <include
+            android:id="@+id/heightWeightView"
+            layout="@layout/height_weight"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="175dp"
+            android:layout_marginBottom="175dp"
+            android:visibility="gone"/>
+
+        <include
+            android:id="@+id/glucoseView"
+            layout="@layout/glucose_test"
+            android:layout_centerInParent="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:visibility="gone"/>
+
+        <include
+            android:id="@+id/bpView"
+            android:layout_centerInParent="true"
+            layout="@layout/bp_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:visibility="gone"/>
+
+        <include
+            android:id="@+id/reviewVisitView"
+            layout="@layout/review_visit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="175dp"
+            android:layout_marginBottom="175dp"
+            android:visibility="gone"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/progessButtons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true">
+
+        <ImageButton
+            android:id="@+id/previousButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/previous"
+            android:layout_marginRight="75dp"
+            android:background="@android:color/transparent"/>
+
+        <RadioGroup
+            android:id="@+id/progressGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:checkedButton="@+id/radioOne">
+
+            <RadioButton
+                android:id="@+id/radioOne"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <RadioButton
+                android:id="@+id/radioTwo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <RadioButton
+                android:id="@+id/radioThree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <RadioButton
+                android:id="@+id/radioFour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <RadioButton
+                android:id="@+id/radioFive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <RadioButton
+                android:id="@+id/radioSix"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <RadioButton
+                android:id="@+id/radioSeven"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RadioGroup>
+
+        <ImageButton
+            android:id="@+id/nextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/next"
+            android:layout_marginLeft="75dp"
+            android:layout_marginBottom="15dp"
+            android:background="@android:color/transparent"/>
+
+    </LinearLayout>
 
 </RelativeLayout>

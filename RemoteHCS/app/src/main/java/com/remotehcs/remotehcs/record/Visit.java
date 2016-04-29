@@ -12,9 +12,9 @@ public class Visit {
     private String bmi;
     private String dry_mouth;
     private String high_blood_pressure;
-    private String n_numbness;
-    private String p;
-    private String n_weakness;
+    private String numbness;
+    private String pregnant;
+    private String dizziness;
     private String diabetes;
     private String date;
     private String user;
@@ -91,28 +91,12 @@ public class Visit {
         this.high_blood_pressure = high_blood_pressure;
     }
 
-    public String getN_numbness() {
-        return n_numbness;
+    public String getNumbness() {
+        return numbness;
     }
 
-    public void setN_numbness(String n_numbness) {
-        this.n_numbness = n_numbness;
-    }
-
-    public String getP() {
-        return p;
-    }
-
-    public void setP(String p) {
-        this.p = p;
-    }
-
-    public String getN_weakness() {
-        return n_weakness;
-    }
-
-    public void setN_weakness(String n_weakness) {
-        this.n_weakness = n_weakness;
+    public void setNumbness(String numbness) {
+        this.numbness = numbness;
     }
 
     public String getDiabetes() {
@@ -138,4 +122,21 @@ public class Visit {
     public void setUser(String user) {
         this.user = user;
     }
+
+    public String getDizziness() {
+        return dizziness;
+    }
+
+    public void setDizziness(String dizziness) {
+        this.dizziness = dizziness;
+    }
+
+    public String getPregnant() {
+        return pregnant;
+    }
+
+    public void setPregnant(String pregnant) {
+        this.pregnant = pregnant;
+    }
 }
+
