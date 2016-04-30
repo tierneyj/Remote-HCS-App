@@ -27,9 +27,6 @@ import com.remotehcs.remotehcs.R;
 import com.remotehcs.remotehcs.record.VisitResponse;
 import com.remotehcs.remotehcs.record.Visit;
 
-import static com.remotehcs.remotehcs.R.*;
-
-
 public class VisitsFragment extends Fragment {
 
     private List<Visit> results;
@@ -49,7 +46,7 @@ public class VisitsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(layout.fragment_visits, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_visits, container, false);
 
         String URL = "https://www.remotehcs.com/api/records/" + MainActivity.patient.getPubpid() + "/visits";
 
@@ -115,7 +112,7 @@ public class VisitsFragment extends Fragment {
     private class ListAdapter extends ArrayAdapter {
 
         ListAdapter() {
-            super(getActivity(), layout.visit_row);
+            super(getActivity(), R.layout.visit_row);
         }
 
         @Override

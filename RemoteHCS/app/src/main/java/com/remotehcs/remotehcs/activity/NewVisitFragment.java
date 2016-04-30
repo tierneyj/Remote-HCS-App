@@ -18,11 +18,6 @@ import android.widget.TextView;
 
 import com.remotehcs.remotehcs.R;
 
-import static com.remotehcs.remotehcs.R.*;
-
-
-
-
 public class NewVisitFragment extends Fragment {
 
     private ImageButton nextButton;
@@ -48,7 +43,7 @@ public class NewVisitFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(layout.fragment_new_visit, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_new_visit, container, false);
 
         FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.mainfab);
         fab.setVisibility(View.GONE);
@@ -65,26 +60,26 @@ public class NewVisitFragment extends Fragment {
         title = (TextView) rootView.findViewById(R.id.titleLabel);
 
         titles = new String[7];
-        titles[0] = getString(string.medical_history);
-        titles[1] = getString(string.medical_conditions);
-        titles[2] = getString(string.medical_conditions);
-        titles[3] = getString(string.height_weight);
-        titles[4] = getString(string.glucose_test);
-        titles[5] = getString(string.bp_test);
-        titles[6] = getString(string.review_visit);
+        titles[0] = getString(R.string.medical_history);
+        titles[1] = getString(R.string.medical_conditions);
+        titles[2] = getString(R.string.medical_conditions);
+        titles[3] = getString(R.string.height_weight);
+        titles[4] = getString(R.string.glucose_test);
+        titles[5] = getString(R.string.bp_test);
+        titles[6] = getString(R.string.review_visit);
 
         progress = new RadioButton[7];
-        progress[0] = (RadioButton) rootView.findViewById(id.radioOne);
-        progress[1] = (RadioButton) rootView.findViewById(id.radioTwo);
-        progress[2] = (RadioButton) rootView.findViewById(id.radioThree);
-        progress[3] = (RadioButton) rootView.findViewById(id.radioFour);
-        progress[4] = (RadioButton) rootView.findViewById(id.radioFive);
-        progress[5] = (RadioButton) rootView.findViewById(id.radioSix);
-        progress[6] = (RadioButton) rootView.findViewById(id.radioSeven);
+        progress[0] = (RadioButton) rootView.findViewById(R.id.radioOne);
+        progress[1] = (RadioButton) rootView.findViewById(R.id.radioTwo);
+        progress[2] = (RadioButton) rootView.findViewById(R.id.radioThree);
+        progress[3] = (RadioButton) rootView.findViewById(R.id.radioFour);
+        progress[4] = (RadioButton) rootView.findViewById(R.id.radioFive);
+        progress[5] = (RadioButton) rootView.findViewById(R.id.radioSix);
+        progress[6] = (RadioButton) rootView.findViewById(R.id.radioSeven);
 
         position = 0;
 
-        radioGroup = (RadioGroup) rootView.findViewById(id.progressGroup);
+        radioGroup = (RadioGroup) rootView.findViewById(R.id.progressGroup);
 
         previousButton = (ImageButton) rootView.findViewById(R.id.previousButton);
         nextButton = (ImageButton) rootView.findViewById(R.id.nextButton);
@@ -92,8 +87,8 @@ public class NewVisitFragment extends Fragment {
         if (MainActivity.patient.getSex().equals("Male")) {
 
             Log.d("Joseph", "hims is a boy");
-            views[1].findViewById(id.topView).setVisibility(View.GONE);
-            RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) views[1].findViewById(id.middleView).getLayoutParams();
+            views[1].findViewById(R.id.topView).setVisibility(View.GONE);
+            RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) views[1].findViewById(R.id.middleView).getLayoutParams();
             params.addRule(RelativeLayout.BELOW,0);
             params.addRule(RelativeLayout.ALIGN_PARENT_TOP);
 //
