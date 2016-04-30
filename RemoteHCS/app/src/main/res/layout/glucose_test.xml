@@ -13,15 +13,18 @@
         android:text="@string/glucose_instructions"
         android:gravity="center"/>
 
-    <TextView
+    <Button
         android:id="@+id/beginTestButton"
-        android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_below="@+id/instructionsLabel"
-        android:textColor="@color/colorPrimary"
         android:text="@string/begin_test"
         android:layout_marginTop="100dp"
-        android:textSize="25sp"/>
+        android:fontFamily="droid"
+        android:textColor="@drawable/text_button"
+        android:textAllCaps="false"
+        android:textSize="25sp"
+        android:background="@android:color/transparent"/>
 
 </RelativeLayout>

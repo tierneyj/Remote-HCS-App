@@ -18,45 +18,53 @@
             android:textSize="25sp"
             android:text="@string/height"/>
 
-        <RadioGroup
-            android:id="@+id/heightRadioGroup"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
             android:layout_below="@id/heightLabel"
-            android:orientation="horizontal"
-            android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:checkedButton="@+id/heightRadioCentimeters">
+            android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/heightRadioCentimeters"
+            <EditText
+                android:layout_gravity="center_vertical"
+                android:id="@+id/heightValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="centimeters"
                 android:textSize="25sp"
-                android:layout_marginRight="30dp"/>
+                android:hint="@string/height"
+                android:gravity="center"
+                android:inputType="number"
+                android:layout_marginRight="20dp"/>
 
-            <RadioButton
-                android:id="@+id/heightRadioInches"
+            <RadioGroup
+                android:layout_gravity="center_vertical"
+                android:id="@+id/heightRadioGroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="inches"
-                android:textSize="25sp"
-                android:layout_marginLeft="30dp"/>
+                android:orientation="horizontal"
+                android:layout_marginLeft="20dp"
+                android:checkedButton="@+id/heightRadioCentimeters">
 
-        </RadioGroup>
+                <RadioButton
+                    android:id="@+id/heightRadioCentimeters"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="centimeters"
+                    android:textSize="25sp"
+                    android:layout_marginRight="20dp"/>
 
-        <EditText
-            android:id="@+id/heightValue"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/heightRadioGroup"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:textSize="25sp"
-            android:hint="@string/height"
-            android:gravity="center"
-            android:layout_marginTop="10dp"
-            android:inputType="number" />
+                <RadioButton
+                    android:id="@+id/heightRadioInches"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="inches"
+                    android:textSize="25sp"
+                    android:layout_marginLeft="20dp"/>
+
+            </RadioGroup>
+
+        </LinearLayout>
 
     </RelativeLayout>
 
@@ -77,45 +85,53 @@
             android:textSize="25sp"
             android:text="@string/weight"/>
 
-        <RadioGroup
-            android:id="@+id/weightRadioGroup"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
             android:layout_below="@id/weightLabel"
-            android:orientation="horizontal"
-            android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:checkedButton="@+id/weightRadioKilograms">
+            android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/weightRadioKilograms"
+            <EditText
+                android:layout_gravity="center_vertical"
+                android:id="@+id/weightValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="kilograms"
                 android:textSize="25sp"
-                android:layout_marginRight="30dp"/>
+                android:hint="@string/weight"
+                android:gravity="center"
+                android:inputType="number"
+                android:layout_marginRight="20dp"/>
 
-            <RadioButton
-                android:id="@+id/weightRadioPounds"
+            <RadioGroup
+                android:layout_gravity="center_vertical"
+                android:id="@+id/weightRadioGroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="pounds"
-                android:textSize="25sp"
-                android:layout_marginLeft="30dp"/>
+                android:orientation="horizontal"
+                android:layout_marginLeft="20dp"
+                android:checkedButton="@+id/weightRadioKilograms">
 
-        </RadioGroup>
+                <RadioButton
+                    android:id="@+id/weightRadioKilograms"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="kilograms"
+                    android:textSize="25sp"
+                    android:layout_marginRight="20dp"/>
 
-        <EditText
-            android:layout_below="@+id/weightRadioGroup"
-            android:id="@+id/weightValue"
-            android:layout_marginTop="10dp"
-            android:layout_centerHorizontal="true"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:hint="@string/weight"
-            android:textSize="25sp"
-            android:gravity="center"
-            android:inputType="number" />
+                <RadioButton
+                    android:id="@+id/weightRadioPounds"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="pounds"
+                    android:textSize="25sp"
+                    android:layout_marginLeft="20dp"/>
+
+            </RadioGroup>
+
+        </LinearLayout>
 
     </RelativeLayout>
 

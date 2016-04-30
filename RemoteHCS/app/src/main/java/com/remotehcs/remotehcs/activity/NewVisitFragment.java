@@ -13,6 +13,7 @@ import android.widget.ImageButton;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.remotehcs.remotehcs.R;
@@ -88,7 +89,19 @@ public class NewVisitFragment extends Fragment {
         previousButton = (ImageButton) rootView.findViewById(R.id.previousButton);
         nextButton = (ImageButton) rootView.findViewById(R.id.nextButton);
 
-        Log.d("Joseph", Integer.toString(title.getTextColors().getDefaultColor()));
+        if (MainActivity.patient.getSex().equals("Male")) {
+
+            Log.d("Joseph", "hims is a boy");
+            views[1].findViewById(id.topView).setVisibility(View.GONE);
+            RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) views[1].findViewById(id.middleView).getLayoutParams();
+            params.addRule(RelativeLayout.BELOW,0);
+            params.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+//
+//            RelativeLayout.LayoutParams params2 = (RelativeLayout.LayoutParams) rootView.findViewById(id.conditionsView).getLayoutParams();
+//            params2.addRule(RelativeLayout.MA);
+//            params2.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+
+        }
 
         previousButtonListener();
         nextButtonListener();

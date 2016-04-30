@@ -40,6 +40,11 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             android:text="Show More Results"
+            android:fontFamily="droid"
+            android:textColor="@drawable/text_button"
+            android:textAllCaps="false"
+            android:textSize="25sp"
+            android:background="@android:color/transparent"
             android:visibility="gone"/>
 
 
@@ -48,7 +53,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:text="Edit Search"/>
+            android:text="Edit Search"
+            android:fontFamily="droid"
+            android:textColor="@drawable/text_button"
+            android:textAllCaps="false"
+            android:textSize="25sp"
+            android:background="@android:color/transparent"/>
 
     </LinearLayout>
 

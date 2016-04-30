@@ -63,14 +63,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
-            android:text="Search"/>
+            android:text="Search"
+            android:fontFamily="droid"
+            android:textColor="@drawable/text_button"
+            android:textAllCaps="false"
+            android:textSize="25sp"
+            android:background="@android:color/transparent"/>
 
         <Button
             android:id="@+id/clearButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:text="Clear"/>
+            android:text="Clear"
+            android:fontFamily="droid"
+            android:textColor="@drawable/text_button"
+            android:textAllCaps="false"
+            android:textSize="25sp"
+            android:background="@android:color/transparent"/>
 
     </LinearLayout>
 

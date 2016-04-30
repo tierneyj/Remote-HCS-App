@@ -65,7 +65,16 @@
     <string name="retest">Retest</string>
     <string name="blood_sugar">Blood Sugar:</string>
     <string name="blood_pressure">Blood Pressure:</string>
+    <string name="pulse">Pulse:</string>
     <string name="pregnant">Pregnant:</string>
+    <string name="bmi">BMI:</string>
+    <string name="dry_mouth">Experiencing Dry Mouth:</string>
+    <string name="dizziness">Experiencing Dizziness:</string>
+    <string name="numbness">Experiencing Numbness:</string>
+    <string name="hypertension">Previous diagnosis of hypertension:</string>
+    <string name="diabetes">Previous diagnosis of diabetes: </string>
+    <string name="family_hypertension">Family History of Hypertension:</string>
+    <string name="family_diabetes">Family History of Diabetes:</string>
     <string name="glucose_instructions">Wash patients hands and fingers using alcohol.
         If you are using alcohol, let it dry before you prick your finger.
         Prick the site with a lancing device.
