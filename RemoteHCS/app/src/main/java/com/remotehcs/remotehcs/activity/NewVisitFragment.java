@@ -1,9 +1,11 @@
 package com.remotehcs.remotehcs.activity;
 
 import android.app.Activity;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,11 +20,26 @@ import android.widget.TextView;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.remotehcs.remotehcs.R;
+import com.remotehcs.remotehcs.api.LoginResponse;
 import com.remotehcs.remotehcs.record.PostRequest;
+import com.remotehcs.remotehcs.record.PostResponse;
 import com.remotehcs.remotehcs.record.Visit;
 
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.converter.FormHttpMessageConverter;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.StringHttpMessageConverter;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.client.RestTemplate;
+
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.TimeZone;
 
 public class NewVisitFragment extends Fragment {
@@ -204,132 +221,130 @@ public class NewVisitFragment extends Fragment {
 
     public void uploadButtonListener() {
         uploadButton.setOnClickListener(
-            new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
 
-                    RadioButton smokingRadioYes = (RadioButton) views[0].findViewById(R.id.smokingRadioNo);
-                    RadioButton relativesDiabetesRadioYes = (RadioButton) views[0].findViewById(R.id.diabetesRadioYes);
-                    RadioButton relativesHypertensionRadioYes = (RadioButton) views[0].findViewById(R.id.hypertensionRadioYes);
+                        RadioButton smokingRadioYes = (RadioButton) views[0].findViewById(R.id.smokingRadioNo);
+                        RadioButton relativesDiabetesRadioYes = (RadioButton) views[0].findViewById(R.id.diabetesRadioYes);
+                        RadioButton relativesHypertensionRadioYes = (RadioButton) views[0].findViewById(R.id.hypertensionRadioYes);
 
-                    RadioButton pregnantRadioYes = (RadioButton) views[1].findViewById(R.id.pregnantRadioYes);
-                    RadioButton hypertensionRadioYes = (RadioButton) views[1].findViewById(R.id.hypertensionRadioYes);
-                    RadioButton diabetesRadioYes = (RadioButton) views[1].findViewById(R.id.diabetesRadioYes);
+                        RadioButton pregnantRadioYes = (RadioButton) views[1].findViewById(R.id.pregnantRadioYes);
+                        RadioButton hypertensionRadioYes = (RadioButton) views[1].findViewById(R.id.hypertensionRadioYes);
+                        RadioButton diabetesRadioYes = (RadioButton) views[1].findViewById(R.id.diabetesRadioYes);
 
-                    RadioButton dryMouthRadioYes = (RadioButton) views[2].findViewById(R.id.dryMouthRadioYes);
-                    RadioButton numbnessRadioYes = (RadioButton) views[2].findViewById(R.id.numbnessRadioYes);
-                    RadioButton dizzinessRadioYes = (RadioButton) views[2].findViewById(R.id.dizzinessRadioYes);
+                        RadioButton dryMouthRadioYes = (RadioButton) views[2].findViewById(R.id.dryMouthRadioYes);
+                        RadioButton numbnessRadioYes = (RadioButton) views[2].findViewById(R.id.numbnessRadioYes);
+                        RadioButton dizzinessRadioYes = (RadioButton) views[2].findViewById(R.id.dizzinessRadioYes);
 
-                    EditText heightEditText = (EditText) views[3].findViewById(R.id.heightValue);
-                    RadioButton heightRadioInches = (RadioButton) views[3].findViewById(R.id.heightRadioInches);
-                    EditText weightEditText = (EditText) views[3].findViewById(R.id.weightValue);
-                    RadioButton weightRadioPounds = (RadioButton) views[3].findViewById(R.id.weightRadioPounds);
+                        EditText heightEditText = (EditText) views[3].findViewById(R.id.heightValue);
+                        RadioButton heightRadioInches = (RadioButton) views[3].findViewById(R.id.heightRadioInches);
+                        EditText weightEditText = (EditText) views[3].findViewById(R.id.weightValue);
+                        RadioButton weightRadioPounds = (RadioButton) views[3].findViewById(R.id.weightRadioPounds);
 
-                    if (heightRadioInches.isChecked()) {
-                        MainActivity.patient.getVisit(0).setHeight(Double.parseDouble(heightEditText.getText().toString()));
-                    } else {
-                        MainActivity.patient.getVisit(0).setHeight(Double.parseDouble(heightEditText.getText().toString()));
-                    }
-
-                    if (weightRadioPounds.isChecked()) {
-                        MainActivity.patient.getVisit(0).setWeight(Integer.parseInt(weightEditText.getText().toString()));
-                    } else {
-                        MainActivity.patient.getVisit(0).setWeight(Integer.parseInt(weightEditText.getText().toString()));
-                    }
-
-                    if (relativesHypertensionRadioYes.isChecked()) {
-                        MainActivity.patient.getHistoryData().setRelatives_high_blood_pressure("Yes");
-                    } else {
-                        MainActivity.patient.getHistoryData().setRelatives_high_blood_pressure("No");
-                    }
-
-                    if (relativesDiabetesRadioYes.isChecked()) {
-                        MainActivity.patient.getHistoryData().setRelatives_diabetes("Yes");
-                    } else {
-                        MainActivity.patient.getHistoryData().setRelatives_diabetes("No");
-                    }
-
-                    if (hypertensionRadioYes.isChecked()) {
-                        MainActivity.patient.getVisit(0).setHigh_blood_pressure("Yes");
-                    } else {
-                        MainActivity.patient.getVisit(0).setHigh_blood_pressure("No");
-                    }
-
-                    if (diabetesRadioYes.isChecked()) {
-                        MainActivity.patient.getVisit(0).setDiabetes("Yes");
-                    } else {
-                        MainActivity.patient.getVisit(0).setDiabetes("No");
-                    }
-
-                    if (MainActivity.patient.getPatientData().getSex().equals("Male")) {
-                        MainActivity.patient.getVisit(0).setPregnant("No");
-
-                    } else {
-
-                        if (pregnantRadioYes.isChecked()) {
-                            MainActivity.patient.getVisit(0).setPregnant("Yes");
+                        if (heightRadioInches.isChecked()) {
+                            MainActivity.patient.getVisit(0).setHeight(Double.parseDouble(heightEditText.getText().toString()));
                         } else {
-                            MainActivity.patient.getVisit(0).setPregnant("No");
+                            MainActivity.patient.getVisit(0).setHeight(Double.parseDouble(heightEditText.getText().toString()));
                         }
 
+                        if (weightRadioPounds.isChecked()) {
+                            MainActivity.patient.getVisit(0).setWeight(Integer.parseInt(weightEditText.getText().toString()));
+                        } else {
+                            MainActivity.patient.getVisit(0).setWeight(Integer.parseInt(weightEditText.getText().toString()));
+                        }
+
+                        if (relativesHypertensionRadioYes.isChecked()) {
+                            MainActivity.patient.getHistoryData().setRelatives_high_blood_pressure("Yes");
+                        } else {
+                            MainActivity.patient.getHistoryData().setRelatives_high_blood_pressure("No");
+                        }
+
+                        if (relativesDiabetesRadioYes.isChecked()) {
+                            MainActivity.patient.getHistoryData().setRelatives_diabetes("Yes");
+                        } else {
+                            MainActivity.patient.getHistoryData().setRelatives_diabetes("No");
+                        }
+
+                        if (hypertensionRadioYes.isChecked()) {
+                            MainActivity.patient.getVisit(0).setHigh_blood_pressure("Yes");
+                        } else {
+                            MainActivity.patient.getVisit(0).setHigh_blood_pressure("No");
+                        }
+
+                        if (diabetesRadioYes.isChecked()) {
+                            MainActivity.patient.getVisit(0).setDiabetes("Yes");
+                        } else {
+                            MainActivity.patient.getVisit(0).setDiabetes("No");
+                        }
+
+                        if (smokingRadioYes.isChecked()) {
+                            MainActivity.patient.getHistoryData().setTobacco("Yes");
+                        } else {
+                            MainActivity.patient.getHistoryData().setTobacco("No");
+                        }
+
+                        if (MainActivity.patient.getPatientData().getSex().equals("Male")) {
+                            MainActivity.patient.getVisit(0).setPregnant("No");
+
+                        } else {
+
+                            if (pregnantRadioYes.isChecked()) {
+                                MainActivity.patient.getVisit(0).setPregnant("Yes");
+                            } else {
+                                MainActivity.patient.getVisit(0).setPregnant("No");
+                            }
+
+                        }
+                        if (dryMouthRadioYes.isChecked()) {
+                            MainActivity.patient.getVisit(0).setDry_mouth("Yes");
+                        } else {
+                            MainActivity.patient.getVisit(0).setDry_mouth("No");
+                        }
+
+                        if (dizzinessRadioYes.isChecked()) {
+                            MainActivity.patient.getVisit(0).setDizziness("Yes");
+                        } else {
+                            MainActivity.patient.getVisit(0).setDizziness("No");
+                        }
+
+                        if (numbnessRadioYes.isChecked()) {
+                            MainActivity.patient.getVisit(0).setNumbness("Yes");
+                        } else {
+                            MainActivity.patient.getVisit(0).setNumbness("No");
+                        }
+
+                        if (MainActivity.connectedToHub) {
+
+                        } else {
+                            EditText glucoseEditText = (EditText) views[4].findViewById(R.id.glucoseValue);
+                            EditText bpsEditText = (EditText) views[5].findViewById(R.id.bpsValue);
+                            EditText bpdEditText = (EditText) views[5].findViewById(R.id.bpdValue);
+                            EditText pulseEditText = (EditText) views[5].findViewById(R.id.pulseValue);
+
+                            MainActivity.patient.getVisit(0).setGlucose(Integer.parseInt(glucoseEditText.getText().toString()));
+                            MainActivity.patient.getVisit(0).setBps(Integer.parseInt(bpsEditText.getText().toString()));
+                            MainActivity.patient.getVisit(0).setBpd(Integer.parseInt(bpdEditText.getText().toString()));
+                            MainActivity.patient.getVisit(0).setPulse(Integer.parseInt(pulseEditText.getText().toString()));
+                        }
+
+                        MainActivity.patient.getVisit(0).setBmi(calculateBMI());
+                        MainActivity.patient.getVisit(0).setUser(MainActivity.user);
+                        MainActivity.patient.getHistoryData().setDate(MainActivity.patient.getVisit(0).getDate());
+
+                        MainActivity.patient.getMetadata().setName(MainActivity.user);
+                        MainActivity.patient.getMetadata().setDate(timestamp());
+                        MainActivity.patient.getMetadata().setPatient_exists("Yes");
+                        MainActivity.patient.getMetadata().setLat(42.3492813);
+                        MainActivity.patient.getMetadata().setLon(-71.106701);
+                        MainActivity.patient.getMetadata().setDuration("00:25:34");
+                        MainActivity.patient.getMetadata().setInternet(3);
+                        MainActivity.patient.getMetadata().setPubpid(MainActivity.patient.getPatientData().getPubpid());
+
+                        new UploadRecord().execute();
+
                     }
-                    if (dryMouthRadioYes.isChecked()) {
-                        MainActivity.patient.getVisit(0).setDry_mouth("Yes");
-                    } else {
-                        MainActivity.patient.getVisit(0).setDry_mouth("No");
-                    }
-
-                    if (dizzinessRadioYes.isChecked()) {
-                        MainActivity.patient.getVisit(0).setDizziness("Yes");
-                    } else {
-                        MainActivity.patient.getVisit(0).setDizziness("No");
-                    }
-
-                    if (numbnessRadioYes.isChecked()) {
-                        MainActivity.patient.getVisit(0).setNumbness("Yes");
-                    } else {
-                        MainActivity.patient.getVisit(0).setNumbness("No");
-                    }
-
-                    MainActivity.patient.getVisit(0).setBmi(calculateBMI());
-                    MainActivity.patient.getVisit(0).setGlucose(80);
-                    MainActivity.patient.getVisit(0).setBps(120);
-                    MainActivity.patient.getVisit(0).setBpd(80);
-                    MainActivity.patient.getHistoryData().setTobacco("No");
-                    MainActivity.patient.getVisit(0).setPulse(77);
-                    MainActivity.patient.getVisit(0).setUser(MainActivity.user);
-                    MainActivity.patient.getHistoryData().setDate(MainActivity.patient.getVisit(0).getDate());
-
-                    MainActivity.patient.getMetadata().setName(MainActivity.user);
-                    MainActivity.patient.getMetadata().setDate(timestamp());
-                    MainActivity.patient.getMetadata().setPatient_exists("Yes");
-                    MainActivity.patient.getMetadata().setLat(42.3492813);
-                    MainActivity.patient.getMetadata().setLon(-71.106701);
-                    MainActivity.patient.getMetadata().setDuration("00:25:34");
-                    MainActivity.patient.getMetadata().setInternet(3);
-                    MainActivity.patient.getMetadata().setPubpid(MainActivity.patient.getPatientData().getPubpid());
-
-                    for (int i = 0; i < MainActivity.patient.getVisits().size(); i++) {
-                        Log.d("Joseph", MainActivity.patient.getVisit(i).getDate());
-                    }
-
-                    PostRequest request = new PostRequest();
-                    request.setVisit(MainActivity.patient.getVisit(0));
-                    request.setHistory_data(MainActivity.patient.getHistoryData());
-                    request.setMetadata(MainActivity.patient.getMetadata());
-                    request.setPatient_data(MainActivity.patient.getPatientData());
-
-                    ObjectMapper mapper = new ObjectMapper();
-
-                    try {
-                        String jsonString = mapper.writeValueAsString(request);
-                        Log.d("Joseph", jsonString);
-                    } catch (Exception e) {
-
-                    }
-
                 }
-            }
         );
     }
 
@@ -378,15 +393,15 @@ public class NewVisitFragment extends Fragment {
                     RadioButton weightRadioPounds = (RadioButton) views[3].findViewById(R.id.weightRadioPounds);
 
                     if (heightRadioInches.isChecked()) {
-                        heightValue.setText(" " + heightEditText.getText().toString() + "in.");
+                        heightValue.setText(": " + heightEditText.getText().toString() + " in.");
                     } else {
-                        heightValue.setText(" " + heightEditText.getText().toString() + "cm.");
+                        heightValue.setText(": " + heightEditText.getText().toString() + " cm.");
                     }
 
                     if (weightRadioPounds.isChecked()) {
-                        weightValue.setText(" " + weightEditText.getText().toString() + "lbs.");
+                        weightValue.setText(": " + weightEditText.getText().toString() + " lbs.");
                     } else {
-                        weightValue.setText(" " + weightEditText.getText().toString() + "kg.");
+                        weightValue.setText(": " + weightEditText.getText().toString() + " kg.");
                     }
 
                     if (relativesHypertensionRadioYes.isChecked()) {
@@ -444,14 +459,24 @@ public class NewVisitFragment extends Fragment {
                     if (numbnessRadioYes.isChecked()) {
                         numbnessValue.setText(": Yes");
                     } else {
-                        numbnessValue.setText(" No");
+                        numbnessValue.setText(": No");
                     }
 
-                    bmiValue.setText(": " + calculateBMI());
-                    glucoseValue.setText(": 80gm");
-                    bpValue.setText(": 120/34");
-                    pulseValue.setText(": 60bps");
+                    bmiValue.setText(": " + calculateBMI() + " kg/m" + (Html.fromHtml("X<sup>2</sup>")) + ".");
 
+                    if (MainActivity.connectedToHub) {
+
+                    } else {
+                        EditText glucoseEditText = (EditText) views[4].findViewById(R.id.glucoseValue);
+                        EditText bpsEditText = (EditText) views[5].findViewById(R.id.bpsValue);
+                        EditText bpdEditText = (EditText) views[5].findViewById(R.id.bpdValue);
+                        EditText pulseEditText = (EditText) views[5].findViewById(R.id.pulseValue);
+
+                        glucoseValue.setText(": " + glucoseEditText.getText().toString() + " mmol/L.");
+                        bpValue.setText(": " + bpsEditText.getText().toString());
+                        bpValue.append("/" + bpdEditText.getText().toString() + " mmHg.");
+                        pulseValue.setText(": " + pulseEditText.getText().toString() + " bpm.");
+                    }
                 }
             }
         });
@@ -492,4 +517,80 @@ public class NewVisitFragment extends Fragment {
 
         return bmi;
     }
+
+    private class UploadRecord extends AsyncTask<Void, Void, String> {
+
+        private PostRequest request;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            request = new PostRequest();
+
+            request.setVisit(MainActivity.patient.getVisit(0));
+            request.setHistory_data(MainActivity.patient.getHistoryData());
+            request.setMetadata(MainActivity.patient.getMetadata());
+            request.setPatient_data(MainActivity.patient.getPatientData());
+
+        }
+
+        @Override
+        protected String doInBackground(Void... params) {
+
+            try {
+
+                ObjectMapper mapper = new ObjectMapper();
+
+                String jsonString;
+
+                try {
+                    jsonString = mapper.writeValueAsString(request);
+                    Log.d("Joseph", jsonString);
+                } catch (Exception e) {
+
+                    jsonString = "";
+                    Log.d("Joseph", jsonString);
+
+                }
+
+
+                //final String url = "https://54.165.25.47/remotehcs/api/token";
+                final String url = "https://www.remotehcs.com/api/records/";
+
+
+                HttpHeaders headers = new HttpHeaders();
+                headers.set("Authorization", "Token " + MainActivity.token);
+                headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+
+                HttpEntity<String> request = new HttpEntity<String>(jsonString, headers);
+
+                RestTemplate restTemplate = new RestTemplate();
+
+                final List<HttpMessageConverter<?>> messageConverters = new ArrayList< HttpMessageConverter<?> >();
+
+                messageConverters.add(new FormHttpMessageConverter());
+                messageConverters.add(new MappingJackson2HttpMessageConverter());
+                messageConverters.add(new StringHttpMessageConverter());
+
+                restTemplate.setMessageConverters(messageConverters);
+
+                String response = restTemplate.postForObject(url, request, String.class);
+
+                return response;
+
+            } catch (Exception e) {
+                Log.d("Joseph", "Post Error");
+                String errorMessage = e.getMessage().toString();
+                return errorMessage;
+            }
+        }
+
+        @Override
+        protected void onPostExecute(String response) {
+            super.onPostExecute(response);
+            Log.d("Joseph", response);
+        }
+    }
+
 }
