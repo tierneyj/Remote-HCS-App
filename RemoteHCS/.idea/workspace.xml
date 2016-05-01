@@ -53,41 +53,92 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="NextPatientFragment.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="NextPatientFragment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/remotehcs/remotehcs/activity/NextPatientFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="90" column="11" selection-start-line="90" selection-start-column="11" selection-end-line="90" selection-end-column="11" />
+            <state vertical-scroll-proportion="0.76082003">
+              <caret line="384" column="56" selection-start-line="384" selection-start-column="56" selection-end-line="384" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#2838#3389#0" expanded="true" />
+                <element signature="e#3388#3389#0" expanded="true" />
                 <element signature="method#populateListView#0;class#NextPatientFragment#0" expanded="false" />
                 <element signature="class#ListAdapter#0;class#NextPatientFragment#0" expanded="false" />
                 <element signature="method#getView#0;class#ListAdapter#0;class#NextPatientFragment#0" expanded="false" />
                 <element signature="method#showMoreListener#0;class#NextPatientFragment#0" expanded="false" />
                 <element signature="method#clearListener#0;class#NextPatientFragment#0" expanded="false" />
-                <element signature="method#newPatientListener#0;class#NextPatientFragment#0" expanded="false" />
+                <element signature="e#11779#11965#0" expanded="true" />
+                <element signature="e#11964#11965#0" expanded="true" />
                 <element signature="method#editSearchListener#0;class#NextPatientFragment#0" expanded="false" />
-                <element signature="method#newPatient#0;class#NextPatientFragment#0" expanded="false" />
+                <element signature="e#13456#16809#0" expanded="true" />
+                <element signature="e#16808#16809#0" expanded="true" />
                 <element signature="method#noMatches#0;class#NextPatientFragment#0" expanded="false" />
                 <element signature="method#expand#0;class#NextPatientFragment#0" expanded="false" />
                 <element signature="method#collapse#0;class#NextPatientFragment#0" expanded="false" />
-                <element signature="method#showVisitResults#0;class#NextPatientFragment#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NewVisitFragment.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="patient_info.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/patient_info.xml">
+          <provider editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="android-designer">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PatientData.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/remotehcs/remotehcs/record/PatientData.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="227" column="5" selection-start-line="227" selection-start-column="5" selection-end-line="227" selection-end-column="5" />
+              <folding>
+                <element signature="e#3632#3633#0" expanded="true" />
+                <element signature="e#3666#3667#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/remotehcs/remotehcs/activity/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="49" column="59" selection-start-line="49" selection-start-column="59" selection-end-line="49" selection-end-column="59" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NewVisitFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/remotehcs/remotehcs/activity/NewVisitFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8291572">
-              <caret line="560" column="41" selection-start-line="560" selection-start-column="41" selection-end-line="560" selection-end-column="41" />
+            <state vertical-scroll-proportion="-5.4074073">
+              <caret line="486" column="0" selection-start-line="486" selection-start-column="0" selection-end-line="492" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#nextButtonListener#0;class#NewVisitFragment#0" expanded="false" />
-                <element signature="method#timestamp#0;class#NewVisitFragment#0" expanded="false" />
-                <element signature="method#calculateBMI#0;class#NewVisitFragment#0" expanded="false" />
-                <element signature="e#26179#26192#0" expanded="true" />
+                <element signature="e#26101#26114#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Visit.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/remotehcs/remotehcs/record/Visit.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="99" column="5" selection-start-line="99" selection-start-column="5" selection-end-line="99" selection-end-column="5" />
+              <folding>
+                <element signature="method#setHigh_blood_pressure#0;class#Visit#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -109,7 +160,7 @@
       <file leaf-file-name="conditions.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/conditions.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="-0.0">
               <caret line="96" column="21" selection-start-line="50" selection-start-column="3" selection-end-line="96" selection-end-column="21" />
               <folding />
             </state>
@@ -136,10 +187,10 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/remotehcs/remotehcs/activity/LoginActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="110" column="82" selection-start-line="110" selection-start-column="82" selection-end-line="110" selection-end-column="82" />
+              <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3873#3904#0" expanded="true" />
+                <element signature="e#3872#3903#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1661,7 +1712,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/remotehcs/remotehcs/record/HistoryData.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/remotehcs/remotehcs/record/Record.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/remotehcs/remotehcs/activity/VisitsFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/remotehcs/remotehcs/record/Visit.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/review_visit.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/remotehcs/remotehcs/activity/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
@@ -1669,8 +1719,9 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/bp_disconnected_view.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_new_visit.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/remotehcs/remotehcs/activity/LoginActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/remotehcs/remotehcs/activity/NextPatientFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/remotehcs/remotehcs/record/Visit.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/remotehcs/remotehcs/activity/NewVisitFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/remotehcs/remotehcs/activity/NextPatientFragment.java" />
       </list>
     </option>
   </component>
@@ -2298,6 +2349,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30028328" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286119" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286119" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -2318,7 +2370,6 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" x="100" y="100" width="1080" height="600" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286119" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -2368,7 +2419,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="44" />
+      <option name="time" value="46" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -2599,24 +2650,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="60" column="24" selection-start-line="60" selection-start-column="24" selection-end-line="60" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/patient_info.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="120.10345">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/remotehcs/remotehcs/activity/PatientInfoFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="11.436363">
           <caret line="3" column="3" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2644,25 +2690,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/remotehcs/remotehcs/record/PatientData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-77.77778">
-          <caret line="227" column="5" selection-start-line="227" selection-start-column="5" selection-end-line="227" selection-end-column="5" />
-          <folding>
-            <element signature="e#1071#1072#0" expanded="false" />
-            <element signature="e#1099#1100#0" expanded="false" />
-            <element signature="e#1146#1147#0" expanded="false" />
-            <element signature="e#1180#1181#0" expanded="false" />
-            <element signature="e#1217#1218#0" expanded="false" />
-            <element signature="e#1245#1246#0" expanded="false" />
-            <element signature="e#1292#1293#0" expanded="false" />
-            <element signature="e#1326#1327#0" expanded="false" />
-            <element signature="e#3632#3633#0" expanded="false" />
-            <element signature="e#3666#3667#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2783,73 +2810,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/remotehcs/remotehcs/record/Visit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="154" column="14" selection-start-line="154" selection-start-column="14" selection-end-line="154" selection-end-column="14" />
-          <folding>
-            <element signature="e#1115#1116#0" expanded="false" />
-            <element signature="e#1153#1154#0" expanded="false" />
-            <element signature="e#1182#1183#0" expanded="false" />
-            <element signature="e#1210#1211#0" expanded="false" />
-            <element signature="e#1249#1250#0" expanded="false" />
-            <element signature="e#1283#1284#0" expanded="false" />
-            <element signature="e#1310#1311#0" expanded="false" />
-            <element signature="e#1336#1337#0" expanded="false" />
-            <element signature="e#1371#1372#0" expanded="false" />
-            <element signature="e#1401#1402#0" expanded="false" />
-            <element signature="e#1428#1429#0" expanded="false" />
-            <element signature="e#1454#1455#0" expanded="false" />
-            <element signature="e#1489#1490#0" expanded="false" />
-            <element signature="e#1519#1520#0" expanded="false" />
-            <element signature="e#1552#1553#0" expanded="false" />
-            <element signature="e#1581#1582#0" expanded="false" />
-            <element signature="e#1625#1626#0" expanded="false" />
-            <element signature="e#1661#1662#0" expanded="false" />
-            <element signature="e#1691#1692#0" expanded="false" />
-            <element signature="e#1720#1721#0" expanded="false" />
-            <element signature="e#1761#1762#0" expanded="false" />
-            <element signature="e#1797#1798#0" expanded="false" />
-            <element signature="e#1824#1825#0" expanded="false" />
-            <element signature="e#1850#1851#0" expanded="false" />
-            <element signature="e#1885#1886#0" expanded="false" />
-            <element signature="e#1915#1916#0" expanded="false" />
-            <element signature="e#1951#1952#0" expanded="false" />
-            <element signature="e#1983#1984#0" expanded="false" />
-            <element signature="e#2033#2034#0" expanded="false" />
-            <element signature="e#2075#2076#0" expanded="false" />
-            <element signature="e#2121#2122#0" expanded="false" />
-            <element signature="e#2163#2164#0" expanded="false" />
-            <element signature="e#2409#2410#0" expanded="false" />
-            <element signature="e#2449#2450#0" expanded="false" />
-            <element signature="e#2484#2485#0" expanded="false" />
-            <element signature="e#2515#2516#0" expanded="false" />
-            <element signature="e#2563#2564#0" expanded="false" />
-            <element signature="e#2603#2604#0" expanded="false" />
-            <element signature="e#2634#2635#0" expanded="false" />
-            <element signature="e#2661#2662#0" expanded="false" />
-            <element signature="e#2701#2702#0" expanded="false" />
-            <element signature="e#2733#2734#0" expanded="false" />
-            <element signature="e#2764#2765#0" expanded="false" />
-            <element signature="e#2791#2792#0" expanded="false" />
-            <element signature="e#2831#2832#0" expanded="false" />
-            <element signature="e#2863#2864#0" expanded="false" />
-            <element signature="e#2899#2900#0" expanded="false" />
-            <element signature="e#2931#2932#0" expanded="false" />
-            <element signature="e#2981#2982#0" expanded="false" />
-            <element signature="e#3023#3024#0" expanded="false" />
-            <element signature="e#3058#3059#0" expanded="false" />
-            <element signature="e#3089#3090#0" expanded="false" />
-            <element signature="e#3137#3138#0" expanded="false" />
-            <element signature="e#3177#3178#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/remotehcs/remotehcs/activity/VisitsFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2898,27 +2863,6 @@
           <caret line="52" column="20" selection-start-line="52" selection-start-column="20" selection-end-line="52" selection-end-column="20" />
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/remotehcs/remotehcs/activity/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="49" column="59" selection-start-line="49" selection-start-column="59" selection-end-line="49" selection-end-column="59" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/conditions.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="96" column="21" selection-start-line="50" selection-start-column="3" selection-end-line="96" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_new_visit.xml">
@@ -2975,49 +2919,103 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/remotehcs/remotehcs/activity/NextPatientFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/conditions.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="90" column="11" selection-start-line="90" selection-start-column="11" selection-end-line="90" selection-end-column="11" />
+          <caret line="96" column="21" selection-start-line="50" selection-start-column="3" selection-end-line="96" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/remotehcs/remotehcs/activity/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="49" column="59" selection-start-line="49" selection-start-column="59" selection-end-line="49" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#populateListView#0;class#NextPatientFragment#0" expanded="false" />
-            <element signature="class#ListAdapter#0;class#NextPatientFragment#0" expanded="false" />
-            <element signature="method#getView#0;class#ListAdapter#0;class#NextPatientFragment#0" expanded="false" />
-            <element signature="method#showMoreListener#0;class#NextPatientFragment#0" expanded="false" />
-            <element signature="method#clearListener#0;class#NextPatientFragment#0" expanded="false" />
-            <element signature="method#newPatientListener#0;class#NextPatientFragment#0" expanded="false" />
-            <element signature="method#editSearchListener#0;class#NextPatientFragment#0" expanded="false" />
-            <element signature="method#newPatient#0;class#NextPatientFragment#0" expanded="false" />
-            <element signature="method#noMatches#0;class#NextPatientFragment#0" expanded="false" />
-            <element signature="method#expand#0;class#NextPatientFragment#0" expanded="false" />
-            <element signature="method#collapse#0;class#NextPatientFragment#0" expanded="false" />
-            <element signature="method#showVisitResults#0;class#NextPatientFragment#0" expanded="false" />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/remotehcs/remotehcs/record/Visit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="99" column="5" selection-start-line="99" selection-start-column="5" selection-end-line="99" selection-end-column="5" />
+          <folding>
+            <element signature="method#setHigh_blood_pressure#0;class#Visit#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/remotehcs/remotehcs/record/PatientData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="227" column="5" selection-start-line="227" selection-start-column="5" selection-end-line="227" selection-end-column="5" />
+          <folding>
+            <element signature="e#3632#3633#0" expanded="true" />
+            <element signature="e#3666#3667#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/patient_info.xml">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/remotehcs/remotehcs/activity/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="110" column="82" selection-start-line="110" selection-start-column="82" selection-end-line="110" selection-end-column="82" />
+          <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3873#3904#0" expanded="true" />
+            <element signature="e#3872#3903#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/remotehcs/remotehcs/activity/NewVisitFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8291572">
-          <caret line="560" column="41" selection-start-line="560" selection-start-column="41" selection-end-line="560" selection-end-column="41" />
+        <state vertical-scroll-proportion="-5.4074073">
+          <caret line="486" column="0" selection-start-line="486" selection-start-column="0" selection-end-line="492" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#nextButtonListener#0;class#NewVisitFragment#0" expanded="false" />
-            <element signature="method#timestamp#0;class#NewVisitFragment#0" expanded="false" />
-            <element signature="method#calculateBMI#0;class#NewVisitFragment#0" expanded="false" />
-            <element signature="e#26179#26192#0" expanded="true" />
+            <element signature="e#26101#26114#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/remotehcs/remotehcs/activity/NextPatientFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.76082003">
+          <caret line="384" column="56" selection-start-line="384" selection-start-column="56" selection-end-line="384" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2838#3389#0" expanded="true" />
+            <element signature="e#3388#3389#0" expanded="true" />
+            <element signature="method#populateListView#0;class#NextPatientFragment#0" expanded="false" />
+            <element signature="class#ListAdapter#0;class#NextPatientFragment#0" expanded="false" />
+            <element signature="method#getView#0;class#ListAdapter#0;class#NextPatientFragment#0" expanded="false" />
+            <element signature="method#showMoreListener#0;class#NextPatientFragment#0" expanded="false" />
+            <element signature="method#clearListener#0;class#NextPatientFragment#0" expanded="false" />
+            <element signature="e#11779#11965#0" expanded="true" />
+            <element signature="e#11964#11965#0" expanded="true" />
+            <element signature="method#editSearchListener#0;class#NextPatientFragment#0" expanded="false" />
+            <element signature="e#13456#16809#0" expanded="true" />
+            <element signature="e#16808#16809#0" expanded="true" />
+            <element signature="method#noMatches#0;class#NextPatientFragment#0" expanded="false" />
+            <element signature="method#expand#0;class#NextPatientFragment#0" expanded="false" />
+            <element signature="method#collapse#0;class#NextPatientFragment#0" expanded="false" />
           </folding>
         </state>
       </provider>

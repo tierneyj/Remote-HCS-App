@@ -31,9 +31,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
+import java.util.TimeZone;
 
 import com.remotehcs.remotehcs.R;
 import com.remotehcs.remotehcs.record.PatientData;
@@ -85,7 +88,8 @@ public class NextPatientFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 MainActivity.patient.setPatientData(results.get(position));
-                new VisitRequestTask().execute("http://www.remotehcs.com/api/records/" + MainActivity.patient.getPatientData().getPubpid() + "/visits");
+                MainActivity.patient.getMetadata().setPatient_exists("Yes");
+                new VisitRequestTask().execute("http://52.36.163.49:8000/api/records/" + MainActivity.patient.getPatientData().getPubpid() + "/visits");
                 //((MainActivity) getActivity()).displayView(1);
             }
         });
@@ -131,7 +135,7 @@ public class NextPatientFragment extends Fragment {
         EditText fnameEditText = (EditText) mSearch.findViewById(R.id.fnameEditText);
         EditText lnameEditText = (EditText) mSearch.findViewById(R.id.lnameEditText);
 
-        String URL = "http://www.remotehcs.com/api/records/patient-data";
+        String URL = "http://52.36.163.49:8000/api/records/patient-data";
 
         Boolean first = true;
 
@@ -398,6 +402,10 @@ public class NextPatientFragment extends Fragment {
                         MainActivity.patient.getPatientData().setEmail(emailEditText.getText().toString());
                         MainActivity.patient.getPatientData().setPhone_contact(homePhoneEditText.getText().toString());
                         MainActivity.patient.getPatientData().setPhone_cell(cellPhoneEditText.getText().toString());
+                        MainActivity.patient.getPatientData().setGov_id("000003454");
+                        MainActivity.patient.getPatientData().setDate(timestamp());
+
+                        MainActivity.patient.getMetadata().setPatient_exists("No");
 
                         ((MainActivity)getActivity()).displayView(1);
                     }
@@ -530,6 +538,13 @@ public class NextPatientFragment extends Fragment {
         ((MainActivity) getActivity()).displayView(1);
     }
 
+    public String timestamp() {
+        TimeZone timeZone = TimeZone.getTimeZone("UTC");
+        Calendar timestamp = Calendar.getInstance(timeZone);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+        simpleDateFormat.setTimeZone(timeZone);
+        return simpleDateFormat.format(timestamp.getTime());
+    }
 
 }
 

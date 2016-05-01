@@ -336,12 +336,12 @@ public class NewVisitFragment extends Fragment {
 
                         MainActivity.patient.getMetadata().setName(MainActivity.user);
                         MainActivity.patient.getMetadata().setDate(timestamp());
-                        MainActivity.patient.getMetadata().setPatient_exists("Yes");
                         MainActivity.patient.getMetadata().setLat(42.3492813);
                         MainActivity.patient.getMetadata().setLon(-71.106701);
                         MainActivity.patient.getMetadata().setDuration("00:25:34");
                         MainActivity.patient.getMetadata().setInternet(3);
-                        MainActivity.patient.getMetadata().setPubpid(MainActivity.patient.getPatientData().getPubpid());
+                        //MainActivity.patient.getMetadata().setPubpid(MainActivity.patient.getPatientData().getPubpid());
+                        MainActivity.patient.getMetadata().setPubpid("");
 
                         new UploadRecord().execute();
 
@@ -492,7 +492,7 @@ public class NewVisitFragment extends Fragment {
         return simpleDateFormat.format(timestamp.getTime());
     }
 
-    public int calculateBMI () {
+    public Double calculateBMI () {
 
         EditText heightEditText = (EditText) views[3].findViewById(R.id.heightValue);
         RadioButton heightRadioInches = (RadioButton) views[3].findViewById(R.id.heightRadioInches);
@@ -501,7 +501,7 @@ public class NewVisitFragment extends Fragment {
 
         double height;
         double weight;
-        int bmi;
+        double bmi;
 
         if (heightRadioInches.isChecked()) {
             height = 0.0254 * Double.parseDouble(heightEditText.getText().toString());
@@ -515,7 +515,7 @@ public class NewVisitFragment extends Fragment {
             weight = Double.parseDouble(weightEditText.getText().toString());
         }
 
-        bmi = (int) Math.round((weight / (height * height)));
+        bmi = Math.round(((weight / (height * height)) * 10.0)/10.0);
 
         return bmi;
     }
@@ -557,9 +557,7 @@ public class NewVisitFragment extends Fragment {
                 }
 
 
-                //final String url = "https://54.165.25.47/remotehcs/api/token";
-                final String url = "https://www.remotehcs.com/api/records/";
-
+                final String url = "http://52.36.163.49:8000/api/records/";
 
                 HttpHeaders headers = new HttpHeaders();
                 headers.set("Authorization", "Token " + MainActivity.token);

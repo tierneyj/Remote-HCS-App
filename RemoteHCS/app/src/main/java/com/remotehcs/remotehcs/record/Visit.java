@@ -15,7 +15,7 @@ public class Visit {
     private int bpd;
     private double height;
     private int weight;
-    private int bmi;
+    private double bmi;
     private String dry_mouth;
     private String high_blood_pressure;
     private String numbness;
@@ -32,7 +32,7 @@ public class Visit {
         this.bpd = 0;
         this.height = 0.0;
         this.weight = 0;
-        this.bmi = 0;
+        this.bmi = 0.0;
         this.dry_mouth = "";
         this.high_blood_pressure = "";
         this.numbness = "";
@@ -91,11 +91,11 @@ public class Visit {
         this.weight = weight;
     }
 
-    public int getBmi() {
+    public Double getBmi() {
         return bmi;
     }
 
-    public void setBmi(int bmi) {
+    public void setBmi(Double bmi) {
         this.bmi = bmi;
     }
 

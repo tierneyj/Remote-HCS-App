@@ -102,7 +102,7 @@ public class LoginActivity extends AppCompatActivity {
                 map.add("username", username);
                 map.add("password", password);
                 //final String url = "https://54.165.25.47/remotehcs/api/token";
-                final String url = "https://www.remotehcs.com/api/token/";
+                final String url = "http://52.36.163.49:8000/api/token/";
 
 
                 HttpHeaders headers = new HttpHeaders();
