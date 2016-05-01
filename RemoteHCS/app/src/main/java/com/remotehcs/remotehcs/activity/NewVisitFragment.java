@@ -21,15 +21,23 @@ import com.remotehcs.remotehcs.R;
 import com.remotehcs.remotehcs.record.PostRequest;
 import com.remotehcs.remotehcs.record.Visit;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.TimeZone;
+
 public class NewVisitFragment extends Fragment {
 
     private ImageButton nextButton;
     private ImageButton previousButton;
     private RadioGroup radioGroup;
     private View[] views;
+    private View mGlucoseDisconnectedView;
+    private View mBpDisconnectedView;
     private RadioButton[] progress;
 
     private Button uploadButton;
+    private Button glucoseBeginTestButton;
+    private Button bpBeginTestButton;
 
     private Integer position;
     private TextView title;
@@ -62,6 +70,9 @@ public class NewVisitFragment extends Fragment {
         views[5] = rootView.findViewById(R.id.bpView);
         views[6] = rootView.findViewById(R.id.reviewVisitView);
 
+        mGlucoseDisconnectedView = rootView.findViewById(R.id.glucoseDisconnectedView);
+        mBpDisconnectedView = rootView.findViewById(R.id.bpDisconnectedView);
+
         title = (TextView) rootView.findViewById(R.id.titleLabel);
 
         titles = new String[7];
@@ -90,6 +101,8 @@ public class NewVisitFragment extends Fragment {
         nextButton = (ImageButton) rootView.findViewById(R.id.nextButton);
 
         uploadButton = (Button) rootView.findViewById(R.id.uploadButton);
+        glucoseBeginTestButton = (Button) views[4].findViewById(R.id.beginTestButton);
+        bpBeginTestButton = (Button) views[5].findViewById(R.id.beginTestButton);
 
         if (MainActivity.patient.getPatientData().getSex().equals("Male")) {
 
@@ -104,6 +117,8 @@ public class NewVisitFragment extends Fragment {
         nextButtonListener();
         radioGroupListener();
         uploadButtonListener();
+        glucoseBeginTestListener();
+        bpBeginTestListener();
 
         // Inflate the layout for this fragment
         return rootView;
@@ -156,6 +171,37 @@ public class NewVisitFragment extends Fragment {
         );
     }
 
+    public void glucoseBeginTestListener() {
+        glucoseBeginTestButton.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (!MainActivity.connectedToHub) {
+                            views[4].setVisibility(View.GONE);
+                            views[4] = mGlucoseDisconnectedView;
+                            views[4].setVisibility(View.VISIBLE);
+                        }
+                    }
+                }
+        );
+    }
+
+    public void bpBeginTestListener() {
+        bpBeginTestButton.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (!MainActivity.connectedToHub) {
+                            views[5].setVisibility(View.GONE);
+                            views[5] = mBpDisconnectedView;
+                            views[5].setVisibility(View.VISIBLE);
+                        }
+                    }
+                }
+        );
+    }
+
+
     public void uploadButtonListener() {
         uploadButton.setOnClickListener(
             new View.OnClickListener() {
@@ -178,8 +224,6 @@ public class NewVisitFragment extends Fragment {
                     RadioButton heightRadioInches = (RadioButton) views[3].findViewById(R.id.heightRadioInches);
                     EditText weightEditText = (EditText) views[3].findViewById(R.id.weightValue);
                     RadioButton weightRadioPounds = (RadioButton) views[3].findViewById(R.id.weightRadioPounds);
-
-                    MainActivity.patient.getVisits().add(0,new Visit());
 
                     if (heightRadioInches.isChecked()) {
                         MainActivity.patient.getVisit(0).setHeight(Double.parseDouble(heightEditText.getText().toString()));
@@ -247,18 +291,17 @@ public class NewVisitFragment extends Fragment {
                         MainActivity.patient.getVisit(0).setNumbness("No");
                     }
 
-                    MainActivity.patient.getVisit(0).setBmi(23);
+                    MainActivity.patient.getVisit(0).setBmi(calculateBMI());
                     MainActivity.patient.getVisit(0).setGlucose(80);
                     MainActivity.patient.getVisit(0).setBps(120);
                     MainActivity.patient.getVisit(0).setBpd(80);
                     MainActivity.patient.getHistoryData().setTobacco("No");
                     MainActivity.patient.getVisit(0).setPulse(77);
-                    MainActivity.patient.getVisit(0).setUser("admin");
-                    MainActivity.patient.getVisit(0).setDate("New");
-                    MainActivity.patient.getHistoryData().setDate("2016-04-30T20:18:25Z");
+                    MainActivity.patient.getVisit(0).setUser(MainActivity.user);
+                    MainActivity.patient.getHistoryData().setDate(MainActivity.patient.getVisit(0).getDate());
 
-                    MainActivity.patient.getMetadata().setName("admin");
-                    MainActivity.patient.getMetadata().setDate("2016-04-30T20:18:25Z");
+                    MainActivity.patient.getMetadata().setName(MainActivity.user);
+                    MainActivity.patient.getMetadata().setDate(timestamp());
                     MainActivity.patient.getMetadata().setPatient_exists("Yes");
                     MainActivity.patient.getMetadata().setLat(42.3492813);
                     MainActivity.patient.getMetadata().setLon(-71.106701);
@@ -294,7 +337,6 @@ public class NewVisitFragment extends Fragment {
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                Log.d("Joseph", Integer.toString(checkedId));
                 views[position].setVisibility(View.GONE);
                 position = checkedId - progress[0].getId();
                 views[position].setVisibility(View.VISIBLE);
@@ -308,7 +350,7 @@ public class NewVisitFragment extends Fragment {
                     TextView familyHypertensionValue = (TextView) views[6].findViewById(R.id.familyHypertensionValue);
                     TextView familyDiabetesValue = (TextView) views[6].findViewById(R.id.familyDiabetesValue);
                     TextView hypertensionValue = (TextView) views[6].findViewById(R.id.hypertensionValue);
-                    TextView smokingValue = (TextView) views[0].findViewById(R.id.smokingRadioYes);
+                    TextView smokingValue = (TextView) views[6].findViewById(R.id.smokesValue);
                     TextView diabetesValue = (TextView) views[6].findViewById(R.id.diabetesValue);
                     TextView pregnantValue = (TextView) views[6].findViewById(R.id.pregnantValue);
                     TextView dryMouthValue = (TextView) views[6].findViewById(R.id.dryMouthValue);
@@ -318,7 +360,7 @@ public class NewVisitFragment extends Fragment {
                     TextView bpValue = (TextView) views[6].findViewById(R.id.bpValue);
                     TextView pulseValue = (TextView) views[6].findViewById(R.id.pulseValue);
 
-                    RadioButton smokingRadioYes = (RadioButton) views[0].findViewById(R.id.smokingRadioNo);
+                    RadioButton smokingRadioYes = (RadioButton) views[0].findViewById(R.id.smokingRadioYes);
                     RadioButton relativesDiabetesRadioYes = (RadioButton) views[0].findViewById(R.id.diabetesRadioYes);
                     RadioButton relativesHypertensionRadioYes = (RadioButton) views[0].findViewById(R.id.hypertensionRadioYes);
 
@@ -388,9 +430,9 @@ public class NewVisitFragment extends Fragment {
                     }
 
                     if (dryMouthRadioYes.isChecked()) {
-                     dryMouthValue.setText(": Yes");
+                        dryMouthValue.setText(": Yes");
                     } else {
-                     dryMouthValue.setText(": No");
+                        dryMouthValue.setText(": No");
                     }
 
                     if (dizzinessRadioYes.isChecked()) {
@@ -405,7 +447,7 @@ public class NewVisitFragment extends Fragment {
                         numbnessValue.setText(" No");
                     }
 
-                    bmiValue.setText(": 45");
+                    bmiValue.setText(": " + calculateBMI());
                     glucoseValue.setText(": 80gm");
                     bpValue.setText(": 120/34");
                     pulseValue.setText(": 60bps");
@@ -413,5 +455,41 @@ public class NewVisitFragment extends Fragment {
                 }
             }
         });
+    }
+
+    public String timestamp() {
+        TimeZone timeZone = TimeZone.getTimeZone("UTC");
+        Calendar timestamp = Calendar.getInstance(timeZone);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+        simpleDateFormat.setTimeZone(timeZone);
+        return simpleDateFormat.format(timestamp.getTime());
+    }
+
+    public int calculateBMI () {
+
+        EditText heightEditText = (EditText) views[3].findViewById(R.id.heightValue);
+        RadioButton heightRadioInches = (RadioButton) views[3].findViewById(R.id.heightRadioInches);
+        EditText weightEditText = (EditText) views[3].findViewById(R.id.weightValue);
+        RadioButton weightRadioPounds = (RadioButton) views[3].findViewById(R.id.weightRadioPounds);
+
+        double height;
+        double weight;
+        int bmi;
+
+        if (heightRadioInches.isChecked()) {
+            height = 0.0254 * Double.parseDouble(heightEditText.getText().toString());
+        } else {
+            height = Double.parseDouble(heightEditText.getText().toString()) / 100;
+        }
+
+        if (weightRadioPounds.isChecked()) {
+            weight = 0.453592 * Double.parseDouble(weightEditText.getText().toString());
+        } else {
+            weight = Double.parseDouble(weightEditText.getText().toString());
+        }
+
+        bmi = (int) Math.round((weight / (height * height)));
+
+        return bmi;
     }
 }

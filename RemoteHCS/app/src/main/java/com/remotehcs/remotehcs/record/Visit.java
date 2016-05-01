@@ -1,6 +1,12 @@
 package com.remotehcs.remotehcs.record;
 
 
+import android.util.Log;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.TimeZone;
+
 public class Visit {
 
     private int glucose;
@@ -33,7 +39,7 @@ public class Visit {
         this.pregnant = "";
         this.dizziness = "";
         this.diabetes = "";
-        this.date = "";
+        this.date = timestamp();
         this.user = "";
     }
 
@@ -155,6 +161,14 @@ public class Visit {
 
     public void setPregnant(String pregnant) {
         this.pregnant = pregnant;
+    }
+
+    public String timestamp() {
+        TimeZone timeZone = TimeZone.getTimeZone("UTC");
+        Calendar timestamp = Calendar.getInstance(timeZone);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+        simpleDateFormat.setTimeZone(timeZone);
+        return simpleDateFormat.format(timestamp.getTime());
     }
 }
 

@@ -173,9 +173,14 @@
             android:id="@+id/smokesLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:textSize="30sp"
             android:text="@string/smokes"/>
+
+        <TextView
+            android:id="@+id/smokesValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"/>
 
     </LinearLayout>
 

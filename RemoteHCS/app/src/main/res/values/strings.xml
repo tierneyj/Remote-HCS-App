@@ -49,6 +49,8 @@
     <string name="height_weight">Height and Weight</string>
     <string name="glucose_test">Blood Sugar Test</string>
     <string name="bp_test">Blood Pressure Test</string>
+    <string name="bps">Systolic Blood Pressure</string>
+    <string name="bpd">Diastolic Blood Pressure</string>
     <string name="review_visit">Review Visit</string>
     <string name="upload">Upload</string>
     <string name="do_you_smoke">Do you smoke?</string>

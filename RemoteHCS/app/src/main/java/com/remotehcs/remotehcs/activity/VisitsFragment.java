@@ -48,20 +48,6 @@ public class VisitsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_visits, container, false);
 
-        String URL = "https://www.remotehcs.com/api/records/" + MainActivity.patient.getPatientData().getPubpid() + "/visits";
-
-        results = new ArrayList<Visit>();
-
-        list = (ListView) rootView.findViewById(R.id.listView);
-
-        populateListView();
-
-        new HttpRequestTask().execute(URL);
-
-        FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.mainfab);
-        fab.setVisibility(View.VISIBLE);
-
-
         // Inflate the layout for this fragment
         return rootView;
     }
@@ -76,97 +62,6 @@ public class VisitsFragment extends Fragment {
         super.onDetach();
     }
 
-
-    private class HttpRequestTask extends AsyncTask<String, Void, VisitResponse> {
-        @Override
-        protected VisitResponse doInBackground(String... params) {
-            try {
-                final String url = params[0];
-
-                HttpHeaders headers = new HttpHeaders();
-                headers.set("Authorization", "Token " + MainActivity.token);
-                HttpEntity entity = new HttpEntity(headers);
-
-                RestTemplate restTemplate = new RestTemplate();
-                restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-                ResponseEntity<VisitResponse> response = restTemplate.exchange(url, HttpMethod.GET, entity, VisitResponse.class, params);
-                return response.getBody();
-
-            } catch (Exception e) {
-                Log.e("Spring Problem", e.getMessage(), e);
-                return null;
-            }
-        }
-
-        @Override
-        protected void onPostExecute(VisitResponse response) {
-            showResults(response);
-        }
-    }
-
-    private void populateListView() {
-        adapter = new ListAdapter();
-        list.setAdapter(adapter);
-    }
-
-    private class ListAdapter extends ArrayAdapter {
-
-        ListAdapter() {
-            super(getActivity(), R.layout.visit_row);
-        }
-
-        @Override
-        public int getCount() {
-            return results.size();
-        }
-
-        @Override
-        public Object getItem(int i) {
-            return results.get(i);
-        }
-
-        @Override
-        public long getItemId(int i) {
-            return i;
-        }
-
-        @Override
-        public View getView(int i, View convertView, ViewGroup parent) {
-
-            if (convertView == null) {
-                convertView = getActivity().getLayoutInflater().inflate(R.layout.visit_row, parent, false);
-
-            }
-
-            TextView dateLabel = (TextView) convertView.findViewById(R.id.dateLabel);
-            dateLabel.setText(results.get(i).getDate());
-
-            return convertView;
-        }
-    }
-
-    private void showResults(VisitResponse response) {
-
-        for (int i = 0; i < response.getVisits().length; i++) {
-            results.add(response.getVisits(i));
-            Log.d("Joseph", response.getVisits(i).getDate());
-        }
-
-        adapter.notifyDataSetChanged();
-
-        //if there are more results display show more button and call listener
-//        if (response.getNext() != null && !response.getNext().isEmpty() && !response.getNext().equals("null")) {
-//            mResults.findViewById(R.id.showMoreButton).setVisibility(View.VISIBLE);
-//            showMoreListener(response.getNext());
-//        }
-//
-//        mSearch.setVisibility(View.GONE);
-//        mResults.setVisibility(View.VISIBLE);
-//
-//        editSearchListener();
-//        newPatientListener();
-
-    }
 
 }
 

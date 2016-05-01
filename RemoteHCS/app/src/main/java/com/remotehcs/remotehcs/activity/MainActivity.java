@@ -14,10 +14,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+import java.util.Calendar;
 
 import com.remotehcs.remotehcs.R;
 import com.remotehcs.remotehcs.record.PatientData;
 import com.remotehcs.remotehcs.record.Record;
+import com.remotehcs.remotehcs.record.Visit;
+
 
 public class MainActivity extends AppCompatActivity implements FragmentDrawer.FragmentDrawerListener {
 
@@ -30,6 +33,10 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
 
     public static Record patient;
     public static String token;
+    public static String user;
+    public static boolean visitInProgress;
+    public static boolean connectedToHub;
+    public static boolean offlineMode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +46,8 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             token = extras.getString("token");
+            user = extras.getString("user");
+            offlineMode = extras.getBoolean("offlineMode");
         }
 
         Log.d("Joseph", token);
@@ -48,10 +57,16 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        patient = new Record();
+        visitInProgress = false;
+        connectedToHub = false;
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.mainfab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                MainActivity.patient.getVisits().add(0, new Visit());
+                visitInProgress = true;
                 displayView(3);
             }
         });
@@ -61,10 +76,11 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
         drawerFragment.setUp(R.id.fragment_navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), mToolbar);
         drawerFragment.setDrawerListener(this);
 
-        patient = new Record();
-
         // display the first navigation drawer view on app launch
         displayView(0);
+//        MainActivity.patient.getVisits().add(0, new Visit());
+//        visitInProgress = true;
+//        displayView(3);
     }
 
 
@@ -98,10 +114,6 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
     @Override
     public void onDrawerItemSelected(View view, int position) {
         displayView(position);
-    }
-
-    public void searchPatients (View v) {
-        searchButton.setText("Pressed");
     }
 
     public void displayView(int position) {

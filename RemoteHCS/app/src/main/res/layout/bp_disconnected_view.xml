@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/topView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
+
+        <TextView
+            android:id="@+id/bpsLabel"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:text="@string/bps"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/bpsLabel"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:layout_gravity="center_vertical"
+                android:id="@+id/bpsValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:hint="@string/bps"
+                android:gravity="center"
+                android:inputType="number"
+                android:layout_marginRight="10dp"/>
+
+            <TextView
+                android:id="@+id/bpsUnits"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:text="mmHg"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/bottomView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:id="@+id/bpdLabel"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:text="@string/bpd"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/bpdLabel"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:layout_gravity="center_vertical"
+                android:id="@+id/bpdValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:hint="@string/bpd"
+                android:gravity="center"
+                android:inputType="number"
+                android:layout_marginRight="10dp"/>
+
+            <TextView
+                android:id="@+id/bpdUnits"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:text="mmHg"/>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

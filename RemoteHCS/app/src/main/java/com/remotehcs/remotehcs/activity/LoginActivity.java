@@ -21,8 +21,11 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.TimeZone;
 
 import com.remotehcs.remotehcs.R;
 import com.remotehcs.remotehcs.api.LoginResponse;
@@ -30,7 +33,6 @@ import com.remotehcs.remotehcs.api.LoginResponse;
 public class LoginActivity extends AppCompatActivity {
 
     private Button loginButton;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,16 +52,20 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         new Authenticate().execute();
-                        //setToken("b7b1b9eb162121622e50231e3be5ad01b81f7ce9");
+                        //Intent intent = new Intent("com.remotehcs.remotehcs.activity.MainActivity");
+                        //startActivity(intent);
                     }
                 }
         );
     }
 
-    private void setToken(String token) {
+    private void setToken(String token, String username) {
+        boolean offlineMode = false;
         Log.d("Joseph", "Token  " + token);
         Intent intent = new Intent("com.remotehcs.remotehcs.activity.MainActivity");
         intent.putExtra("token", token);
+        intent.putExtra("user", username);
+        intent.putExtra("offlineMode", offlineMode);
         startActivity(intent);
     }
 
@@ -95,7 +101,9 @@ public class LoginActivity extends AppCompatActivity {
                 MultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
                 map.add("username", username);
                 map.add("password", password);
+                //final String url = "https://54.165.25.47/remotehcs/api/token";
                 final String url = "https://www.remotehcs.com/api/token/";
+
 
                 HttpHeaders headers = new HttpHeaders();
                 headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
@@ -118,6 +126,7 @@ public class LoginActivity extends AppCompatActivity {
 
             } catch (Exception e) {
                 Log.d("Joseph", "Login Error");
+                Log.e("Joseph", e.getMessage(), e);
                 exceptionToBeThrown = e;
                 return null;
             }
@@ -129,7 +138,7 @@ public class LoginActivity extends AppCompatActivity {
             if (exceptionToBeThrown != null){
                 exceptionFound();
             } else {
-                setToken(response.getToken());
+                setToken(response.getToken(), username);
             }
         }
     }
