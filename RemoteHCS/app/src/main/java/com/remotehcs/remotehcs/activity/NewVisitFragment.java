@@ -223,130 +223,130 @@ public class NewVisitFragment extends Fragment {
 
     public void uploadButtonListener() {
         uploadButton.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+            new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
 
-                        RadioButton smokingRadioYes = (RadioButton) views[0].findViewById(R.id.smokingRadioNo);
-                        RadioButton relativesDiabetesRadioYes = (RadioButton) views[0].findViewById(R.id.diabetesRadioYes);
-                        RadioButton relativesHypertensionRadioYes = (RadioButton) views[0].findViewById(R.id.hypertensionRadioYes);
+                    RadioButton smokingRadioYes = (RadioButton) views[0].findViewById(R.id.smokingRadioNo);
+                    RadioButton relativesDiabetesRadioYes = (RadioButton) views[0].findViewById(R.id.diabetesRadioYes);
+                    RadioButton relativesHypertensionRadioYes = (RadioButton) views[0].findViewById(R.id.hypertensionRadioYes);
 
-                        RadioButton pregnantRadioYes = (RadioButton) views[1].findViewById(R.id.pregnantRadioYes);
-                        RadioButton hypertensionRadioYes = (RadioButton) views[1].findViewById(R.id.hypertensionRadioYes);
-                        RadioButton diabetesRadioYes = (RadioButton) views[1].findViewById(R.id.diabetesRadioYes);
+                    RadioButton pregnantRadioYes = (RadioButton) views[1].findViewById(R.id.pregnantRadioYes);
+                    RadioButton hypertensionRadioYes = (RadioButton) views[1].findViewById(R.id.hypertensionRadioYes);
+                    RadioButton diabetesRadioYes = (RadioButton) views[1].findViewById(R.id.diabetesRadioYes);
 
-                        RadioButton dryMouthRadioYes = (RadioButton) views[2].findViewById(R.id.dryMouthRadioYes);
-                        RadioButton numbnessRadioYes = (RadioButton) views[2].findViewById(R.id.numbnessRadioYes);
-                        RadioButton dizzinessRadioYes = (RadioButton) views[2].findViewById(R.id.dizzinessRadioYes);
+                    RadioButton dryMouthRadioYes = (RadioButton) views[2].findViewById(R.id.dryMouthRadioYes);
+                    RadioButton numbnessRadioYes = (RadioButton) views[2].findViewById(R.id.numbnessRadioYes);
+                    RadioButton dizzinessRadioYes = (RadioButton) views[2].findViewById(R.id.dizzinessRadioYes);
 
-                        EditText heightEditText = (EditText) views[3].findViewById(R.id.heightValue);
-                        RadioButton heightRadioInches = (RadioButton) views[3].findViewById(R.id.heightRadioInches);
-                        EditText weightEditText = (EditText) views[3].findViewById(R.id.weightValue);
-                        RadioButton weightRadioPounds = (RadioButton) views[3].findViewById(R.id.weightRadioPounds);
+                    EditText heightEditText = (EditText) views[3].findViewById(R.id.heightValue);
+                    RadioButton heightRadioInches = (RadioButton) views[3].findViewById(R.id.heightRadioInches);
+                    EditText weightEditText = (EditText) views[3].findViewById(R.id.weightValue);
+                    RadioButton weightRadioPounds = (RadioButton) views[3].findViewById(R.id.weightRadioPounds);
 
-                        if (heightRadioInches.isChecked()) {
-                            MainActivity.patient.getVisit(0).setHeight(Double.parseDouble(heightEditText.getText().toString()));
+                    if (heightRadioInches.isChecked()) {
+                        MainActivity.patient.getVisit(0).setHeight(Double.parseDouble(heightEditText.getText().toString()));
+                    } else {
+                        MainActivity.patient.getVisit(0).setHeight(Double.parseDouble(heightEditText.getText().toString()));
+                    }
+
+                    if (weightRadioPounds.isChecked()) {
+                        MainActivity.patient.getVisit(0).setWeight(Integer.parseInt(weightEditText.getText().toString()));
+                    } else {
+                        MainActivity.patient.getVisit(0).setWeight(Integer.parseInt(weightEditText.getText().toString()));
+                    }
+
+                    if (relativesHypertensionRadioYes.isChecked()) {
+                        MainActivity.patient.getHistoryData().setRelatives_high_blood_pressure("Yes");
+                    } else {
+                        MainActivity.patient.getHistoryData().setRelatives_high_blood_pressure("No");
+                    }
+
+                    if (relativesDiabetesRadioYes.isChecked()) {
+                        MainActivity.patient.getHistoryData().setRelatives_diabetes("Yes");
+                    } else {
+                        MainActivity.patient.getHistoryData().setRelatives_diabetes("No");
+                    }
+
+                    if (hypertensionRadioYes.isChecked()) {
+                        MainActivity.patient.getVisit(0).setHigh_blood_pressure("Yes");
+                    } else {
+                        MainActivity.patient.getVisit(0).setHigh_blood_pressure("No");
+                    }
+
+                    if (diabetesRadioYes.isChecked()) {
+                        MainActivity.patient.getVisit(0).setDiabetes("Yes");
+                    } else {
+                        MainActivity.patient.getVisit(0).setDiabetes("No");
+                    }
+
+                    if (smokingRadioYes.isChecked()) {
+                        MainActivity.patient.getHistoryData().setTobacco("Yes");
+                    } else {
+                        MainActivity.patient.getHistoryData().setTobacco("No");
+                    }
+
+                    if (MainActivity.patient.getPatientData().getSex().equals("Male")) {
+                        MainActivity.patient.getVisit(0).setPregnant("No");
+
+                    } else {
+
+                        if (pregnantRadioYes.isChecked()) {
+                            MainActivity.patient.getVisit(0).setPregnant("Yes");
                         } else {
-                            MainActivity.patient.getVisit(0).setHeight(Double.parseDouble(heightEditText.getText().toString()));
-                        }
-
-                        if (weightRadioPounds.isChecked()) {
-                            MainActivity.patient.getVisit(0).setWeight(Integer.parseInt(weightEditText.getText().toString()));
-                        } else {
-                            MainActivity.patient.getVisit(0).setWeight(Integer.parseInt(weightEditText.getText().toString()));
-                        }
-
-                        if (relativesHypertensionRadioYes.isChecked()) {
-                            MainActivity.patient.getHistoryData().setRelatives_high_blood_pressure("Yes");
-                        } else {
-                            MainActivity.patient.getHistoryData().setRelatives_high_blood_pressure("No");
-                        }
-
-                        if (relativesDiabetesRadioYes.isChecked()) {
-                            MainActivity.patient.getHistoryData().setRelatives_diabetes("Yes");
-                        } else {
-                            MainActivity.patient.getHistoryData().setRelatives_diabetes("No");
-                        }
-
-                        if (hypertensionRadioYes.isChecked()) {
-                            MainActivity.patient.getVisit(0).setHigh_blood_pressure("Yes");
-                        } else {
-                            MainActivity.patient.getVisit(0).setHigh_blood_pressure("No");
-                        }
-
-                        if (diabetesRadioYes.isChecked()) {
-                            MainActivity.patient.getVisit(0).setDiabetes("Yes");
-                        } else {
-                            MainActivity.patient.getVisit(0).setDiabetes("No");
-                        }
-
-                        if (smokingRadioYes.isChecked()) {
-                            MainActivity.patient.getHistoryData().setTobacco("Yes");
-                        } else {
-                            MainActivity.patient.getHistoryData().setTobacco("No");
-                        }
-
-                        if (MainActivity.patient.getPatientData().getSex().equals("Male")) {
                             MainActivity.patient.getVisit(0).setPregnant("No");
-
-                        } else {
-
-                            if (pregnantRadioYes.isChecked()) {
-                                MainActivity.patient.getVisit(0).setPregnant("Yes");
-                            } else {
-                                MainActivity.patient.getVisit(0).setPregnant("No");
-                            }
-
                         }
-                        if (dryMouthRadioYes.isChecked()) {
-                            MainActivity.patient.getVisit(0).setDry_mouth("Yes");
-                        } else {
-                            MainActivity.patient.getVisit(0).setDry_mouth("No");
-                        }
-
-                        if (dizzinessRadioYes.isChecked()) {
-                            MainActivity.patient.getVisit(0).setDizziness("Yes");
-                        } else {
-                            MainActivity.patient.getVisit(0).setDizziness("No");
-                        }
-
-                        if (numbnessRadioYes.isChecked()) {
-                            MainActivity.patient.getVisit(0).setNumbness("Yes");
-                        } else {
-                            MainActivity.patient.getVisit(0).setNumbness("No");
-                        }
-
-                        if (MainActivity.connectedToHub) {
-
-                        } else {
-                            EditText glucoseEditText = (EditText) views[4].findViewById(R.id.glucoseValue);
-                            EditText bpsEditText = (EditText) views[5].findViewById(R.id.bpsValue);
-                            EditText bpdEditText = (EditText) views[5].findViewById(R.id.bpdValue);
-                            EditText pulseEditText = (EditText) views[5].findViewById(R.id.pulseValue);
-
-                            MainActivity.patient.getVisit(0).setGlucose(Integer.parseInt(glucoseEditText.getText().toString()));
-                            MainActivity.patient.getVisit(0).setBps(Integer.parseInt(bpsEditText.getText().toString()));
-                            MainActivity.patient.getVisit(0).setBpd(Integer.parseInt(bpdEditText.getText().toString()));
-                            MainActivity.patient.getVisit(0).setPulse(Integer.parseInt(pulseEditText.getText().toString()));
-                        }
-
-                        MainActivity.patient.getVisit(0).setBmi(calculateBMI());
-                        MainActivity.patient.getVisit(0).setUser(MainActivity.user);
-                        MainActivity.patient.getHistoryData().setDate(MainActivity.patient.getVisit(0).getDate());
-
-                        MainActivity.patient.getMetadata().setName(MainActivity.user);
-                        MainActivity.patient.getMetadata().setDate(timestamp());
-                        MainActivity.patient.getMetadata().setLat(42.3492813);
-                        MainActivity.patient.getMetadata().setLon(-71.106701);
-                        MainActivity.patient.getMetadata().setDuration("00:25:34");
-                        MainActivity.patient.getMetadata().setInternet(3);
-                        //MainActivity.patient.getMetadata().setPubpid(MainActivity.patient.getPatientData().getPubpid());
-                        MainActivity.patient.getMetadata().setPubpid("");
-
-                        new UploadRecord().execute();
 
                     }
+                    if (dryMouthRadioYes.isChecked()) {
+                        MainActivity.patient.getVisit(0).setDry_mouth("Yes");
+                    } else {
+                        MainActivity.patient.getVisit(0).setDry_mouth("No");
+                    }
+
+                    if (dizzinessRadioYes.isChecked()) {
+                        MainActivity.patient.getVisit(0).setDizziness("Yes");
+                    } else {
+                        MainActivity.patient.getVisit(0).setDizziness("No");
+                    }
+
+                    if (numbnessRadioYes.isChecked()) {
+                        MainActivity.patient.getVisit(0).setNumbness("Yes");
+                    } else {
+                        MainActivity.patient.getVisit(0).setNumbness("No");
+                    }
+
+                    if (MainActivity.connectedToHub) {
+
+                    } else {
+                        EditText glucoseEditText = (EditText) views[4].findViewById(R.id.glucoseValue);
+                        EditText bpsEditText = (EditText) views[5].findViewById(R.id.bpsValue);
+                        EditText bpdEditText = (EditText) views[5].findViewById(R.id.bpdValue);
+                        EditText pulseEditText = (EditText) views[5].findViewById(R.id.pulseValue);
+
+                        MainActivity.patient.getVisit(0).setGlucose(Integer.parseInt(glucoseEditText.getText().toString()));
+                        MainActivity.patient.getVisit(0).setBps(Integer.parseInt(bpsEditText.getText().toString()));
+                        MainActivity.patient.getVisit(0).setBpd(Integer.parseInt(bpdEditText.getText().toString()));
+                        MainActivity.patient.getVisit(0).setPulse(Integer.parseInt(pulseEditText.getText().toString()));
+                    }
+
+                    MainActivity.patient.getVisit(0).setBmi(calculateBMI());
+                    MainActivity.patient.getVisit(0).setUser(MainActivity.user);
+                    MainActivity.patient.getHistoryData().setDate(MainActivity.patient.getVisit(0).getDate());
+
+                    MainActivity.patient.getMetadata().setName(MainActivity.user);
+                    MainActivity.patient.getMetadata().setDate(timestamp());
+                    MainActivity.patient.getMetadata().setLat(42.3492813);
+                    MainActivity.patient.getMetadata().setLon(-71.106701);
+                    MainActivity.patient.getMetadata().setDuration("00:25:34");
+                    MainActivity.patient.getMetadata().setInternet(3);
+                    //MainActivity.patient.getMetadata().setPubpid(MainActivity.patient.getPatientData().getPubpid());
+                    MainActivity.patient.getMetadata().setPubpid("");
+
+                    new UploadRecord().execute();
+
                 }
+            }
         );
     }
 
