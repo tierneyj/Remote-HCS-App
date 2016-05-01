@@ -85,7 +85,7 @@ public class NextPatientFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 MainActivity.patient.setPatientData(results.get(position));
-                new VisitRequestTask().execute("https://www.remotehcs.com/api/records/" + MainActivity.patient.getPatientData().getPubpid() + "/visits");
+                new VisitRequestTask().execute("http://www.remotehcs.com/api/records/" + MainActivity.patient.getPatientData().getPubpid() + "/visits");
                 //((MainActivity) getActivity()).displayView(1);
             }
         });
@@ -131,7 +131,7 @@ public class NextPatientFragment extends Fragment {
         EditText fnameEditText = (EditText) mSearch.findViewById(R.id.fnameEditText);
         EditText lnameEditText = (EditText) mSearch.findViewById(R.id.lnameEditText);
 
-        String URL = "https://www.remotehcs.com/api/records/patient-data";
+        String URL = "http://www.remotehcs.com/api/records/patient-data";
 
         Boolean first = true;
 

@@ -23,8 +23,10 @@ import com.remotehcs.remotehcs.R;
 import com.remotehcs.remotehcs.api.LoginResponse;
 import com.remotehcs.remotehcs.record.PostRequest;
 import com.remotehcs.remotehcs.record.PostResponse;
+import com.remotehcs.remotehcs.record.Record;
 import com.remotehcs.remotehcs.record.Visit;
 
+import org.apache.http.entity.ContentType;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -462,7 +464,7 @@ public class NewVisitFragment extends Fragment {
                         numbnessValue.setText(": No");
                     }
 
-                    bmiValue.setText(": " + calculateBMI() + " kg/m" + (Html.fromHtml("X<sup>2</sup>")) + ".");
+                    bmiValue.setText(": " + calculateBMI());
 
                     if (MainActivity.connectedToHub) {
 
@@ -520,18 +522,18 @@ public class NewVisitFragment extends Fragment {
 
     private class UploadRecord extends AsyncTask<Void, Void, String> {
 
-        private PostRequest request;
+        private PostRequest requestObj;
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
 
-            request = new PostRequest();
+            requestObj = new PostRequest();
 
-            request.setVisit(MainActivity.patient.getVisit(0));
-            request.setHistory_data(MainActivity.patient.getHistoryData());
-            request.setMetadata(MainActivity.patient.getMetadata());
-            request.setPatient_data(MainActivity.patient.getPatientData());
+            requestObj.setVisit(MainActivity.patient.getVisit(0));
+            requestObj.setHistory_data(MainActivity.patient.getHistoryData());
+            requestObj.setMetadata(MainActivity.patient.getMetadata());
+            requestObj.setPatient_data(MainActivity.patient.getPatientData());
 
         }
 
@@ -545,7 +547,7 @@ public class NewVisitFragment extends Fragment {
                 String jsonString;
 
                 try {
-                    jsonString = mapper.writeValueAsString(request);
+                    jsonString = mapper.writeValueAsString(requestObj);
                     Log.d("Joseph", jsonString);
                 } catch (Exception e) {
 
@@ -561,19 +563,23 @@ public class NewVisitFragment extends Fragment {
 
                 HttpHeaders headers = new HttpHeaders();
                 headers.set("Authorization", "Token " + MainActivity.token);
-                headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+                headers.setContentType(MediaType.APPLICATION_JSON);
 
-                HttpEntity<String> request = new HttpEntity<String>(jsonString, headers);
+                //HttpEntity<String> entity = new HttpEntity<String>("parameters", headers);
+
+                HttpEntity<PostRequest> request = new HttpEntity<PostRequest>(requestObj, headers);
 
                 RestTemplate restTemplate = new RestTemplate();
+                restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+                restTemplate.getMessageConverters().add(new StringHttpMessageConverter());
 
-                final List<HttpMessageConverter<?>> messageConverters = new ArrayList< HttpMessageConverter<?> >();
-
-                messageConverters.add(new FormHttpMessageConverter());
-                messageConverters.add(new MappingJackson2HttpMessageConverter());
-                messageConverters.add(new StringHttpMessageConverter());
-
-                restTemplate.setMessageConverters(messageConverters);
+//                final List<HttpMessageConverter<?>> messageConverters = new ArrayList< HttpMessageConverter<?> >();
+//
+//                messageConverters.add(new FormHttpMessageConverter());
+//                messageConverters.add(new MappingJackson2HttpMessageConverter());
+//                messageConverters.add(new StringHttpMessageConverter());
+//
+//                restTemplate.setMessageConverters(messageConverters);
 
                 String response = restTemplate.postForObject(url, request, String.class);
 
