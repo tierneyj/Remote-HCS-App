@@ -55,10 +55,4 @@ public class PatientSearch
     {
         this.next = next;
     }
-
-    @Override
-    public String toString()
-    {
-        return "ClassPojo [results = "+results+", previous = "+previous+", count = "+count+", next = "+next+"]";
-    }
 }

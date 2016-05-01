@@ -48,7 +48,7 @@ public class VisitsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_visits, container, false);
 
-        String URL = "https://www.remotehcs.com/api/records/" + MainActivity.patient.getPubpid() + "/visits";
+        String URL = "https://www.remotehcs.com/api/records/" + MainActivity.patient.getPatientData().getPubpid() + "/visits";
 
         results = new ArrayList<Visit>();
 

@@ -169,15 +169,6 @@
             android:textSize="30dp"
             android:text="777-777-7777" />
 
-        <Button
-            android:id="@+id/post"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/cellPhoneValue"
-            android:layout_marginTop="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Post"/>
-
     </RelativeLayout>
 
 </ScrollView>

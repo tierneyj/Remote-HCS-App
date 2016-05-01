@@ -15,10 +15,6 @@ public class PatientData
 
     private String state;
 
-    private String med_his;
-
-    private String pid;
-
     private String pubpid;
 
     private String phone_contact;
@@ -40,6 +36,26 @@ public class PatientData
     private String gov_id;
 
     private String fname;
+
+    public PatientData() {
+        this.mname = "";
+        this.lname = "";
+        this.sex = "";
+        this.status = "";
+        this.address = "";
+        this.state = "";
+        this.pubpid = "";
+        this.phone_contact = "";
+        this.date = "";
+        this.country_code = "";
+        this.city = "";
+        this.email = "";
+        this.phone_cell = "";
+        this.postal_code = "";
+        this.dob = "";
+        this.gov_id = "";
+        this.fname = "";
+    }
 
     public String getMname ()
     {
@@ -99,26 +115,6 @@ public class PatientData
     public void setState (String state)
     {
         this.state = state;
-    }
-
-    public String getMed_his ()
-{
-    return med_his;
-}
-
-    public void setMed_his (String med_his)
-    {
-        this.med_his = med_his;
-    }
-
-    public String getPid ()
-    {
-        return pid;
-    }
-
-    public void setPid (String pid)
-    {
-        this.pid = pid;
     }
 
     public String getPubpid ()
@@ -229,45 +225,5 @@ public class PatientData
     public void setFname (String fname)
     {
         this.fname = fname;
-    }
-
-//    @Override
-//    public String toString()
-//    {
-//        String str;
-//        str = "{";
-//        str += "\"fname\":\"" + fname + "\",";
-//        str += "\"lname\":\"" + lname + "\",";
-//        str += "\"lname\":\"" + lname + "\",";
-//        str += "\"email\":\"" + email + "\"";
-//        str += "}";
-//
-//        return str;
-//
-//    }
-
-
-    @Override
-    public String toString() {
-        return "{" +
-                "\"mname\":\"" + mname + '\"' +
-                ",\"lname\":\"" + lname + '\"' +
-                ",\"sex\":\"" + sex + '\"' +
-                ",\"status\":\"" + status + '\"' +
-                ",\"address\":\"" + address + '\"' +
-                ",\"state\":\"" + state + '\"' +
-                ",\"med_his\":\"" + med_his + '\"' +
-                ",\"pid\":\"" + pid + '\"' +
-                ",\"pubpid\":\"" + pubpid + '\"' +
-                ",\"date\":\"" + date + '\"' +
-                ",\"country_code\":\"" + country_code + '\"' +
-                ",\"city\":\"" + city + '\"' +
-                ",\"email\":\"" + email + '\"' +
-                ",\"phone_cell\":\"" + phone_cell + '\"' +
-                ",\"postal_code\":\"" + postal_code + '\"' +
-                ",\"dob\":\"" + dob + '\"' +
-                ",\"gov_id\":\"" + gov_id + '\"' +
-                ",\"fname\":\"" + fname + '\"' +
-                '}';
     }
 }

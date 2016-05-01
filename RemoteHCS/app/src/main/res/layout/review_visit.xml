@@ -3,136 +3,349 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/heightLabel"
+    <LinearLayout
+        android:id="@+id/height"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="30sp"
-        android:text="@string/height"/>
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/weightLabel"
-        android:layout_below="@+id/heightLabel"
+        <TextView
+            android:id="@+id/heightLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:text="@string/height"/>
+
+        <TextView
+            android:id="@+id/heightValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/weight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:textSize="30sp"
-        android:text="@string/weight"/>
+        android:layout_below="@+id/height">
 
-    <TextView
-        android:id="@+id/bmiLabel"
-        android:layout_below="@id/weightLabel"
+        <TextView
+            android:id="@+id/weightLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:textSize="30sp"
+            android:text="@string/weight"/>
+
+        <TextView
+            android:id="@+id/weightValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bmi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:textSize="30sp"
-        android:text="@string/bmi"/>
+        android:layout_below="@+id/weight">
 
-    <TextView
-        android:id="@+id/familyHypertensionLabel"
-        android:layout_below="@id/bmiLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:textSize="30sp"
-        android:text="@string/family_hypertension"/>
+        <TextView
+            android:id="@+id/bmiLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:text="@string/bmi"/>
 
-    <TextView
-        android:id="@+id/familyDiabetesLabel"
-        android:layout_below="@id/familyHypertensionLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:textSize="30sp"
-        android:text="@string/family_diabetes"/>
+        <TextView
+            android:id="@+id/bmiValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"/>
 
-    <TextView
-        android:id="@+id/hypertensionLabel"
-        android:layout_below="@id/familyDiabetesLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:textSize="30sp"
-        android:text="@string/hypertension"/>
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/diabetesLabel"
-        android:layout_below="@id/hypertensionLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <LinearLayout
+        android:id="@+id/familyHypertension"
+        android:layout_below="@+id/bmi"
         android:layout_marginTop="10dp"
-        android:textSize="30sp"
-        android:text="@string/diabetes"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/pregnantLabel"
-        android:layout_below="@+id/diabetesLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:textSize="30sp"
-        android:text="@string/pregnant"/>
+        <TextView
+            android:id="@+id/familyHypertensionLabel"
+            android:layout_below="@id/bmiLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
-    <TextView
-        android:id="@+id/dryMouthLabel"
-        android:layout_below="@id/pregnantLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:textSize="30sp"
-        android:text="@string/dry_mouth"/>
+            android:textSize="30sp"
+            android:text="@string/family_hypertension"/>
 
-    <TextView
-        android:id="@+id/dizzinessLabel"
-        android:layout_below="@id/dryMouthLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:textSize="30sp"
-        android:text="@string/dizziness"/>
+        <TextView
+            android:id="@+id/familyHypertensionValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"/>
 
-    <TextView
-        android:id="@+id/numbnessLabel"
-        android:layout_below="@id/dizzinessLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:textSize="30sp"
-        android:text="@string/numbness"/>
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/glucoseLabel"
-        android:layout_below="@id/numbnessLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <LinearLayout
+        android:id="@+id/familyDiabetes"
+        android:layout_below="@+id/familyHypertension"
         android:layout_marginTop="10dp"
-        android:textSize="30sp"
-        android:text="@string/blood_sugar"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/bpLabel"
-        android:layout_below="@id/glucoseLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:textSize="30sp"
-        android:text="@string/blood_pressure"/>
+        <TextView
+            android:id="@+id/familyDiabetesLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
-    <TextView
-        android:id="@+id/pulseLabel"
-        android:layout_below="@id/bpLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:text="@string/family_diabetes"/>
+
+        <TextView
+            android:id="@+id/familyDiabetesValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/hypertension"
+        android:layout_below="@+id/familyDiabetes"
         android:layout_marginTop="10dp"
-        android:textSize="30sp"
-        android:text="@string/pulse"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/hypertensionLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:textSize="30sp"
+            android:text="@string/hypertension"/>
+
+        <TextView
+            android:id="@+id/hypertensionValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/diabetes"
+        android:layout_below="@+id/hypertension"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/diabetesLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:textSize="30sp"
+            android:text="@string/diabetes"/>
+
+        <TextView
+            android:id="@+id/diabetesValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/smokes"
+        android:layout_below="@+id/diabetes"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/smokesLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:textSize="30sp"
+            android:text="@string/smokes"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/pregnant"
+        android:layout_below="@+id/smokes"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/pregnantLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:textSize="30sp"
+            android:text="@string/pregnant"/>
+
+        <TextView
+            android:id="@+id/pregnantValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/dryMouth"
+        android:layout_below="@+id/pregnant"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/dryMouthLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:textSize="30sp"
+            android:text="@string/dry_mouth"/>
+
+        <TextView
+            android:id="@+id/dryMouthValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/dizziness"
+        android:layout_below="@+id/dryMouth"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/dizzinessLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:textSize="30sp"
+            android:text="@string/dizziness"/>
+
+        <TextView
+            android:id="@+id/dizzinessValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/numbness"
+        android:layout_below="@+id/dizziness"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/numbnessLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:textSize="30sp"
+            android:text="@string/numbness"/>
+
+        <TextView
+            android:id="@+id/numbnessValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/glucose"
+        android:layout_below="@+id/numbness"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/glucoseLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:textSize="30sp"
+            android:text="@string/blood_sugar"/>
+
+        <TextView
+            android:id="@+id/glucoseValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bp"
+        android:layout_below="@+id/glucose"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/bpLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:textSize="30sp"
+            android:text="@string/blood_pressure"/>
+
+        <TextView
+            android:id="@+id/bpValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/pulse"
+        android:layout_below="@+id/bp"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/pulseLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:textSize="30sp"
+            android:text="@string/pulse"/>
+
+        <TextView
+            android:id="@+id/pulseValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"/>
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/uploadButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/pulseLabel"
-        android:layout_marginTop="10dp"
+        android:layout_below="@+id/pulse"
         android:gravity="center"
         android:layout_centerHorizontal="true"
         android:text="@string/upload"

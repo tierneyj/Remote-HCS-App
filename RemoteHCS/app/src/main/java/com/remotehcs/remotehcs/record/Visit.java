@@ -3,13 +3,13 @@ package com.remotehcs.remotehcs.record;
 
 public class Visit {
 
-    private String glucose;
-    private String pulse;
-    private String bps;
-    private String bpd;
-    private String height;
-    private String weight;
-    private String bmi;
+    private int glucose;
+    private int pulse;
+    private int bps;
+    private int bpd;
+    private double height;
+    private int weight;
+    private int bmi;
     private String dry_mouth;
     private String high_blood_pressure;
     private String numbness;
@@ -19,59 +19,77 @@ public class Visit {
     private String date;
     private String user;
 
-    public String getGlucose() {
+    public Visit() {
+        this.glucose = 0;
+        this.pulse = 0;
+        this.bps = 0;
+        this.bpd = 0;
+        this.height = 0.0;
+        this.weight = 0;
+        this.bmi = 0;
+        this.dry_mouth = "";
+        this.high_blood_pressure = "";
+        this.numbness = "";
+        this.pregnant = "";
+        this.dizziness = "";
+        this.diabetes = "";
+        this.date = "";
+        this.user = "";
+    }
+
+    public int getGlucose() {
         return glucose;
     }
 
-    public void setGlucose(String glucose) {
+    public void setGlucose(int glucose) {
         this.glucose = glucose;
     }
 
-    public String getPulse() {
+    public int getPulse() {
         return pulse;
     }
 
-    public void setPulse(String pulse) {
+    public void setPulse(int pulse) {
         this.pulse = pulse;
     }
 
-    public String getBps() {
+    public int getBps() {
         return bps;
     }
 
-    public void setBps(String bps) {
+    public void setBps(int bps) {
         this.bps = bps;
     }
 
-    public String getBpd() {
+    public int getBpd() {
         return bpd;
     }
 
-    public void setBpd(String bpd) {
+    public void setBpd(int bpd) {
         this.bpd = bpd;
     }
 
-    public String getHeight() {
+    public double getHeight() {
         return height;
     }
 
-    public void setHeight(String height) {
+    public void setHeight(double height) {
         this.height = height;
     }
 
-    public String getWeight() {
+    public int getWeight() {
         return weight;
     }
 
-    public void setWeight(String weight) {
+    public void setWeight(int weight) {
         this.weight = weight;
     }
 
-    public String getBmi() {
+    public int getBmi() {
         return bmi;
     }
 
-    public void setBmi(String bmi) {
+    public void setBmi(int bmi) {
         this.bmi = bmi;
     }
 

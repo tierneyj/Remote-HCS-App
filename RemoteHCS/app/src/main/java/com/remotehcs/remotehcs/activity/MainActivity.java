@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.remotehcs.remotehcs.R;
 import com.remotehcs.remotehcs.record.PatientData;
+import com.remotehcs.remotehcs.record.Record;
 
 public class MainActivity extends AppCompatActivity implements FragmentDrawer.FragmentDrawerListener {
 
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
     private Button searchButton;
 
 
-    public static PatientData patient;
+    public static Record patient;
     public static String token;
 
     @Override
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
         drawerFragment.setUp(R.id.fragment_navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), mToolbar);
         drawerFragment.setDrawerListener(this);
 
+        patient = new Record();
 
         // display the first navigation drawer view on app launch
         displayView(0);

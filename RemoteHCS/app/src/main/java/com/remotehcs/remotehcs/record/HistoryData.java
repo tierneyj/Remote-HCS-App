@@ -8,7 +8,14 @@ public class HistoryData {
     private String relatives_diabetes;
     private String relatives_high_blood_pressure;
 
-    public String getRelatvies_high_blood_pressure() {
+    public HistoryData() {
+        this.date = "";
+        this.tobacco = "";
+        this.relatives_diabetes = "";
+        this.relatives_high_blood_pressure = "";
+    }
+
+    public String getRelatives_high_blood_pressure() {
         return relatives_high_blood_pressure;
     }
 

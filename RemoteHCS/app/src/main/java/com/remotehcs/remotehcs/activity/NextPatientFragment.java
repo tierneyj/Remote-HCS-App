@@ -32,11 +32,14 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.remotehcs.remotehcs.R;
 import com.remotehcs.remotehcs.record.PatientData;
 import com.remotehcs.remotehcs.record.PatientSearch;
+import com.remotehcs.remotehcs.record.Visit;
+import com.remotehcs.remotehcs.record.VisitResponse;
 
 
 public class NextPatientFragment extends Fragment {
@@ -81,8 +84,9 @@ public class NextPatientFragment extends Fragment {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                MainActivity.patient = results.get(position);
-                ((MainActivity)getActivity()).displayView(1);
+                MainActivity.patient.setPatientData(results.get(position));
+                new VisitRequestTask().execute("https://www.remotehcs.com/api/records/" + MainActivity.patient.getPatientData().getPubpid() + "/visits");
+                //((MainActivity) getActivity()).displayView(1);
             }
         });
 
@@ -381,19 +385,19 @@ public class NextPatientFragment extends Fragment {
                         EditText homePhoneEditText = (EditText) mNewPatient.findViewById(R.id.homePhoneEditText);
                         EditText cellPhoneEditText = (EditText) mNewPatient.findViewById(R.id.cellPhoneEditText);
 
-                        MainActivity.patient.setFname(fnameEditText.getText().toString());
-                        MainActivity.patient.setLname(lnameEditText.getText().toString());
-                        MainActivity.patient.setDob(dobEditText.getText().toString());
-                        MainActivity.patient.setStatus(maritalStatuEditText.getText().toString());
-                        MainActivity.patient.setSex(genderEditText.getText().toString());
-                        MainActivity.patient.setAddress(addressEditText.getText().toString());
-                        MainActivity.patient.setCity(cityEditText.getText().toString());
-                        MainActivity.patient.setState(stateEditText.getText().toString());
-                        MainActivity.patient.setPostal_code(postalCodeEditText.getText().toString());
-                        MainActivity.patient.setCountry_code(countryCodeEditText.getText().toString());
-                        MainActivity.patient.setEmail(emailEditText.getText().toString());
-                        MainActivity.patient.setPhone_contact(homePhoneEditText.getText().toString());
-                        MainActivity.patient.setPhone_cell(cellPhoneEditText.getText().toString());
+                        MainActivity.patient.getPatientData().setFname(fnameEditText.getText().toString());
+                        MainActivity.patient.getPatientData().setLname(lnameEditText.getText().toString());
+                        MainActivity.patient.getPatientData().setDob(dobEditText.getText().toString());
+                        MainActivity.patient.getPatientData().setStatus(maritalStatuEditText.getText().toString());
+                        MainActivity.patient.getPatientData().setSex(genderEditText.getText().toString());
+                        MainActivity.patient.getPatientData().setAddress(addressEditText.getText().toString());
+                        MainActivity.patient.getPatientData().setCity(cityEditText.getText().toString());
+                        MainActivity.patient.getPatientData().setState(stateEditText.getText().toString());
+                        MainActivity.patient.getPatientData().setPostal_code(postalCodeEditText.getText().toString());
+                        MainActivity.patient.getPatientData().setCountry_code(countryCodeEditText.getText().toString());
+                        MainActivity.patient.getPatientData().setEmail(emailEditText.getText().toString());
+                        MainActivity.patient.getPatientData().setPhone_contact(homePhoneEditText.getText().toString());
+                        MainActivity.patient.getPatientData().setPhone_cell(cellPhoneEditText.getText().toString());
 
                         ((MainActivity)getActivity()).displayView(1);
                     }
@@ -409,21 +413,21 @@ public class NextPatientFragment extends Fragment {
         mNoMatches.setVisibility(View.VISIBLE);
 
         mNoMatches.findViewById(R.id.newPatientButton).setOnClickListener(
-            new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    newPatient();
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        newPatient();
+                    }
                 }
-            }
         );
 
         mNoMatches.findViewById(R.id.searchAgain).setOnClickListener(
-            new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    search();
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        search();
+                    }
                 }
-            }
         );
 
     }
@@ -487,6 +491,45 @@ public class NextPatientFragment extends Fragment {
         symbol.startAnimation(reverseRotate);
         v.startAnimation(a);
     }
+
+    private class VisitRequestTask extends AsyncTask<String, Void, VisitResponse> {
+        @Override
+        protected VisitResponse doInBackground(String... params) {
+            try {
+                final String url = params[0];
+
+                HttpHeaders headers = new HttpHeaders();
+                headers.set("Authorization", "Token " + MainActivity.token);
+                HttpEntity entity = new HttpEntity(headers);
+
+                RestTemplate restTemplate = new RestTemplate();
+                restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+                ResponseEntity<VisitResponse> response = restTemplate.exchange(url, HttpMethod.GET, entity, VisitResponse.class, params);
+                return response.getBody();
+
+            } catch (Exception e) {
+                Log.e("Spring Problem", e.getMessage(), e);
+                return null;
+            }
+        }
+
+        @Override
+        protected void onPostExecute(VisitResponse visitResponse) {
+            showVisitResults(visitResponse);
+        }
+    }
+
+    private void showVisitResults(VisitResponse visitResponse) {
+
+        MainActivity.patient.setVisits(new ArrayList<Visit>(Arrays.asList(visitResponse.getVisits())));
+
+        for (int i = 0; i < MainActivity.patient.getVisits().size(); i++) {
+            Log.d("Joseph", MainActivity.patient.getVisit(i).getDate());
+        }
+
+        ((MainActivity) getActivity()).displayView(1);
+    }
+
 
 }
 

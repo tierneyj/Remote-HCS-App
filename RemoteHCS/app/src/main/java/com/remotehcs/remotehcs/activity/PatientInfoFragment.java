@@ -23,8 +23,6 @@ import com.remotehcs.remotehcs.record.PostResponse;
 
 public class PatientInfoFragment extends Fragment {
 
-    private Button postButton;
-
     private PostResponse response;
 
     public PatientInfoFragment() {
@@ -55,63 +53,19 @@ public class PatientInfoFragment extends Fragment {
         TextView contactNumber= (TextView) rootView.findViewById(R.id.contactNumberValue);
         TextView cellPhoneNumber = (TextView) rootView.findViewById(R.id.cellPhoneValue);
 
-        postButton = (Button) rootView.findViewById(R.id.post);
+        name.setText(MainActivity.patient.getPatientData().getFname() + " " + MainActivity.patient.getPatientData().getLname());
+        dob.setText(MainActivity.patient.getPatientData().getDob());
+        gender.setText(MainActivity.patient.getPatientData().getSex());
+        maritalStatus.setText(MainActivity.patient.getPatientData().getStatus());
+        email.setText(MainActivity.patient.getPatientData().getEmail());
+        address.setText(MainActivity.patient.getPatientData().getAddress());
+        cityState.setText(MainActivity.patient.getPatientData().getCity() + ", " + MainActivity.patient.getPatientData().getState() + ", " + MainActivity.patient.getPatientData().getPostal_code());
+        contactNumber.setText(MainActivity.patient.getPatientData().getPhone_contact());
+        cellPhoneNumber.setText(MainActivity.patient.getPatientData().getPhone_cell());
 
-        name.setText(MainActivity.patient.getFname() + " " + MainActivity.patient.getLname());
-        dob.setText(MainActivity.patient.getDob());
-        gender.setText(MainActivity.patient.getSex());
-        maritalStatus.setText(MainActivity.patient.getStatus());
-        email.setText(MainActivity.patient.getEmail());
-        address.setText(MainActivity.patient.getAddress());
-        cityState.setText(MainActivity.patient.getCity() + ", " + MainActivity.patient.getState() + ", " + MainActivity.patient.getPostal_code());
-        contactNumber.setText(MainActivity.patient.getPhone_contact());
-        cellPhoneNumber.setText(MainActivity.patient.getPhone_cell());
-
-        postButtonListener();
 
         // Inflate the layout for this fragment
         return rootView;
-    }
-
-    public void postButtonListener() {
-        postButton.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        new Authenticate().execute();
-                        //Log.d("Joseph", MainActivity.patient.toString());
-                    }
-                }
-        );
-    }
-
-    private class Authenticate extends AsyncTask<Void, Void, String> {
-
-        @Override
-        protected String doInBackground(Void... params) {
-
-            try {
-                final String url = ("https://www.remotehcs.com/api/test/");
-                RestTemplate restTemplate = new RestTemplate();
-                restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-
-                HttpEntity<String> request = new HttpEntity(MainActivity.patient.toString());
-
-                //HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<MultiValueMap<String, String>>(map, headers);
-
-                response = restTemplate.postForObject(url, request, PostResponse.class);
-
-                Log.d("Joseph", response.getMessage());
-
-                return null;
-
-            } catch (Exception e) {
-                Log.d("Joseph", "error");
-                Log.e("Spring Problem", e.getMessage(), e);
-            }
-
-            return null;
-        }
     }
 
     @Override
