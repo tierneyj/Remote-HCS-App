@@ -53,8 +53,8 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         new Authenticate().execute();
-                        Intent intent = new Intent("com.remotehcs.remotehcs.activity.MainActivity");
-                        startActivity(intent);
+//                        Intent intent = new Intent("com.remotehcs.remotehcs.activity.MainActivity");
+//                        startActivity(intent);
                         //new LocationService(getCurrentFocus().getContext());
                     }
                 }

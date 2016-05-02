@@ -1,6 +1,11 @@
 package com.remotehcs.remotehcs.activity;
 
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothSocket;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -14,9 +19,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.StringWriter;
+import java.lang.reflect.Method;
 import java.util.Calendar;
+import java.util.Set;
 
 import com.remotehcs.remotehcs.R;
+import com.remotehcs.remotehcs.bluetooth.HubRequest;
 import com.remotehcs.remotehcs.record.PatientData;
 import com.remotehcs.remotehcs.record.Record;
 import com.remotehcs.remotehcs.record.Visit;
@@ -37,6 +51,9 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
     public static boolean visitInProgress;
     public static boolean connectedToHub;
     public static boolean offlineMode;
+    public static BluetoothAdapter mBluetoothAdapter;
+    public static BluetoothDevice mmDevice;
+    public static BluetoothSocket mmSocket;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +78,8 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
         visitInProgress = false;
         connectedToHub = false;
 
+        mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.mainfab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,10 +96,13 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
         drawerFragment.setDrawerListener(this);
 
         // display the first navigation drawer view on app launch
+
+        connectBluetooth();
+
+        //(new Thread(new workerThread("getbp", mmSocket))).start();
+
         displayView(0);
-//        MainActivity.patient.getVisits().add(0, new Visit());
-//        visitInProgress = true;
-//        displayView(3);
+
     }
 
 
@@ -147,6 +169,39 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
 
             // set the toolbar title
             getSupportActionBar().setTitle(title);
+        }
+    }
+
+    public void connectBluetooth () {
+
+        if(!mBluetoothAdapter.isEnabled())
+
+        {
+            Intent enableBluetooth = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+            startActivityForResult(enableBluetooth, 0);
+        }
+
+        Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
+        if(pairedDevices.size()>0) {
+            for (BluetoothDevice device : pairedDevices) {
+                if (device.getName().equals("raspberrypi"))
+                {
+                    mmDevice = device;
+                    break;
+                }
+            }
+        } try {
+            Method m = mmDevice.getClass().getMethod("createRfcommSocket", new Class[]{int.class});
+            mmSocket = (BluetoothSocket) m.invoke(mmDevice, 1);
+            if (!mmSocket.isConnected()) {
+                mmSocket.connect();
+            }
+            if (mmSocket.isConnected()) {
+                connectedToHub = true;
+                Log.d("Bluetooth", "Connected");
+            }
+        } catch (Exception e) {
+            Log.e("Bluetooth", e.getMessage(), e);
         }
     }
 }
