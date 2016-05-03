@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/titleLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:text="Medical History"
+        android:textSize="35sp"/>
+
+    <TextView
+        android:id="@+id/smokesLabel"
+        android:layout_below="@+id/titleLabel"
+        android:layout_marginTop="10dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="@string/smokes"/>
+
+    <TextView
+        android:id="@+id/smokesValue"
+        android:layout_below="@id/smokesLabel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"/>
+
+    <TextView
+        android:id="@+id/relativesDiabetesLabel"
+        android:layout_below="@+id/smokesValue"
+        android:layout_marginTop="30dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="@string/family_diabetes"/>
+
+    <TextView
+        android:id="@+id/relativesDiabetesValue"
+        android:layout_below="@id/relativesDiabetesLabel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textSize="30sp"/>
+
+    <TextView
+        android:id="@+id/relativesHypertensionLabel"
+        android:layout_below="@+id/relativesDiabetesValue"
+        android:layout_marginTop="30dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="@string/family_hypertension" />
+
+    <TextView
+        android:id="@+id/relativesHypertensionValue"
+        android:layout_below="@id/relativesHypertensionLabel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textSize="30sp"/>
+
+</RelativeLayout>

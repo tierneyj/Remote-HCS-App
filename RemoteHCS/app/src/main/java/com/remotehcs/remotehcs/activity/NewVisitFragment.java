@@ -6,7 +6,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.FragmentManager;
 import android.text.Html;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +21,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.remotehcs.remotehcs.R;
@@ -173,11 +177,6 @@ public class NewVisitFragment extends Fragment {
                     @Override
                     public void onClick(View v) {
                         if (position != 0) {
-//                            views[position].setVisibility(View.GONE);
-//                            position--;
-//                            views[position].setVisibility(View.VISIBLE);
-//                            progress[position].setChecked(true);
-//                            title.setText(titles[position]);
                             progress[position - 1].setChecked(true);
 
                         }
@@ -192,11 +191,6 @@ public class NewVisitFragment extends Fragment {
                     @Override
                     public void onClick(View v) {
                         if (position != (views.length-1)) {
-//                            views[position].setVisibility(View.GONE);
-//                            position++;
-//                            views[position].setVisibility(View.VISIBLE);
-//                            progress[position].setChecked(true);
-//                            title.setText(titles[position]);
                             progress[position+1].setChecked(true);
                         }
                     }
@@ -209,7 +203,7 @@ public class NewVisitFragment extends Fragment {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (MainActivity.connectedToHub) {
+                        if (MainActivity.mmSocket.isConnected()) {
                             views[4].setVisibility(View.GONE);
                             views[4] = mGlucoseConnectedView;
                             views[4].setVisibility(View.VISIBLE);
@@ -232,7 +226,7 @@ public class NewVisitFragment extends Fragment {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (MainActivity.connectedToHub) {
+                        if (MainActivity.mmSocket.isConnected()) {
                             views[5].setVisibility(View.GONE);
                             views[5] = mBpConnectedView;
                             views[5].setVisibility(View.VISIBLE);
@@ -637,7 +631,6 @@ public class NewVisitFragment extends Fragment {
                 headers.set("Authorization", "Token " + MainActivity.token);
                 headers.setContentType(MediaType.APPLICATION_JSON);
 
-                //HttpEntity<String> entity = new HttpEntity<String>("parameters", headers);
 
                 HttpEntity<PostRequest> request = new HttpEntity<PostRequest>(requestObj, headers);
 
@@ -645,8 +638,6 @@ public class NewVisitFragment extends Fragment {
                 restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
                 restTemplate.getMessageConverters().add(new StringHttpMessageConverter());
                 restTemplate.getMessageConverters().add(new FormHttpMessageConverter());
-
-                //ResponseEntity<HttpStatus> response = restTemplate.postForObject(url, request, HttpStatus.class );
 
                 ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.POST, request, String.class, params);
 
@@ -662,6 +653,20 @@ public class NewVisitFragment extends Fragment {
         @Override
         protected void onPostExecute(String response) {
             super.onPostExecute(response);
+            if (response.equals("201")) {
+                Toast.makeText(getActivity().getApplicationContext(), "Record Successfully Uploaded", Toast.LENGTH_LONG).show();
+//
+//                Fragment fragment = new NextPatientFragment();
+//
+//                getActivity().title = getString(R.string.next_patient);
+//
+//                MainActivity.fragmentManager = getActivity().getSupportFragmentManager();
+//                FragmentTransaction fragmentTransaction = MainActivity.fragmentManager.beginTransaction();
+//                fragmentTransaction.replace(R.id.container_body, fragment);
+//                fragmentTransaction.commit();
+//
+//                MainActivity.topo().setTitle(title);
+            }
             Log.d("Joseph", response);
         }
     }

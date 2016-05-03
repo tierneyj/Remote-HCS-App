@@ -1,0 +1,59 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#33000000"
+    tools:context="com.remotehcs.remotehcs.activity.BluetoothPopupFragment">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        android:background="#ffffff">
+
+        <TextView
+            android:id="@+id/popupTitle"
+            android:gravity="center_horizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bluetooth Not Supported"
+            android:textSize="35sp"
+            android:textColor="#EE6363"
+            android:layout_marginBottom="50dp"/>
+
+        <TextView
+            android:id="@+id/popupMessage"
+            android:layout_below="@+id/popupTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:text="This Android device does not support bluetooth. Continuing without connection to device hub."
+            android:textSize="25sp"
+            android:layout_marginBottom="50dp"/>
+
+        <Button
+            android:id="@+id/okButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/popupMessage"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:text="Ok"
+            android:fontFamily="droid"
+            android:textColor="@drawable/text_button"
+            android:textAllCaps="false"
+            android:textSize="25sp"
+            android:background="@android:color/transparent"
+            android:layout_marginBottom="20dp"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

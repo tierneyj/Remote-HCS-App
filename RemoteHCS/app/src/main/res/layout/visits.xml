@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_marginRight="@dimen/activity_horizontal_margin"
+    android:layout_marginLeft="@dimen/activity_horizontal_margin">
+
+    <TextView
+        android:id="@+id/titleLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:text="Visits"
+        android:textSize="35sp"/>
+
+    <LinearLayout
+        android:id="@+id/visitSelector"
+        android:layout_below="@+id/titleLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/dateLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date"
+            android:layout_marginRight="5dp"
+            android:textSize="30sp"/>
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </Spinner>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/heightLabel"
+        android:layout_below="@+id/visitSelector"
+        android:layout_marginTop="10dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="@string/height"/>
+
+    <TextView
+        android:id="@+id/heightValue"
+        android:layout_below="@id/heightLabel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"/>
+
+    <TextView
+        android:id="@+id/weightLabel"
+        android:layout_below="@+id/heightValue"
+        android:layout_marginTop="30dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="@string/weight"/>
+
+    <TextView
+        android:id="@+id/weightValue"
+        android:layout_below="@id/weightLabel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textSize="30sp"/>
+
+    <TextView
+        android:id="@+id/bmiLabel"
+        android:layout_below="@+id/weightValue"
+        android:layout_marginTop="30dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="@string/bmi" />
+
+    <TextView
+        android:id="@+id/bmiValue"
+        android:layout_below="@id/bmiLabel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textSize="30sp"/>
+
+    <TextView
+        android:id="@+id/hypertensionLabel"
+        android:layout_below="@+id/bmiValue"
+        android:layout_marginTop="30dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="@string/hypertension" />
+
+    <TextView
+        android:id="@+id/hypertensionValue"
+        android:layout_below="@id/hypertensionLabel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textSize="30sp"/>
+    <TextView
+        android:id="@+id/diabetesLabel"
+        android:layout_below="@+id/hypertensionValue"
+        android:layout_marginTop="30dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="@string/diabetes" />
+
+    <TextView
+        android:id="@+id/diabetesValue"
+        android:layout_below="@id/diabetesLabel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textSize="30sp"/>
+
+    <TextView
+        android:id="@+id/pregnantLabel"
+        android:layout_below="@+id/diabetesValue"
+        android:layout_marginTop="30dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="@string/pregnant" />
+
+    <TextView
+        android:id="@+id/pregnantValue"
+        android:layout_below="@id/pregnantLabel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textSize="30sp"/>
+
+    <TextView
+        android:id="@+id/dryMouthLabel"
+        android:layout_below="@+id/pregnantValue"
+        android:layout_marginTop="30dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="@string/dry_mouth" />
+
+    <TextView
+        android:id="@+id/dryMouthValue"
+        android:layout_below="@id/dryMouthLabel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textSize="30sp"/>
+
+    <TextView
+        android:id="@+id/dizzinessLabel"
+        android:layout_below="@+id/dryMouthValue"
+        android:layout_marginTop="30dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="@string/dizziness" />
+
+    <TextView
+        android:id="@+id/dizzinessValue"
+        android:layout_below="@id/dizzinessLabel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textSize="30sp"/>
+
+    <TextView
+        android:id="@+id/numbnessLabel"
+        android:layout_below="@+id/dizzinessValue"
+        android:layout_marginTop="30dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="@string/numbness" />
+
+    <TextView
+        android:id="@+id/numbnessValue"
+        android:layout_below="@id/numbnessLabel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textSize="30sp"/>
+
+    <TextView
+        android:id="@+id/glucoseLabel"
+        android:layout_below="@+id/numbnessValue"
+        android:layout_marginTop="30dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="@string/blood_sugar" />
+
+    <TextView
+        android:id="@+id/glucoseValue"
+        android:layout_below="@id/glucoseLabel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textSize="30sp"/>
+
+    <TextView
+        android:id="@+id/bpLabel"
+        android:layout_below="@+id/glucoseValue"
+        android:layout_marginTop="30dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="@string/blood_pressure" />
+
+    <TextView
+        android:id="@+id/bpValue"
+        android:layout_below="@id/bpLabel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textSize="30sp"/>
+
+    <TextView
+        android:id="@+id/pulseLabel"
+        android:layout_below="@+id/bpValue"
+        android:layout_marginTop="30dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="@string/pulse" />
+
+    <TextView
+        android:id="@+id/pulseValue"
+        android:layout_below="@id/pulseLabel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textSize="30sp"/>
+
+
+</RelativeLayout>

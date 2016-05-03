@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import org.springframework.http.HttpEntity;
@@ -35,12 +36,17 @@ public class LoginActivity extends AppCompatActivity {
 
     private Button loginButton;
 
+    private RelativeLayout progressSpinner;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
         loginButton = (Button) findViewById(R.id.loginButton);
+
+        progressSpinner = (RelativeLayout) findViewById(R.id.progressBarView);
+        progressSpinner.setVisibility(View.GONE);
 
         loginButtonListener();
 
@@ -53,9 +59,6 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         new Authenticate().execute();
-//                        Intent intent = new Intent("com.remotehcs.remotehcs.activity.MainActivity");
-//                        startActivity(intent);
-                        //new LocationService(getCurrentFocus().getContext());
                     }
                 }
         );
@@ -89,6 +92,7 @@ public class LoginActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
+            progressSpinner.setVisibility(View.VISIBLE);
             usernameEditText = (EditText) findViewById(R.id.usernameEditText);
             passwordEditText = (EditText) findViewById(R.id.passwordEditText);
 
@@ -137,6 +141,7 @@ public class LoginActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(LoginResponse response) {
             super.onPostExecute(response);
+            progressSpinner.setVisibility(View.GONE);
             if (exceptionToBeThrown != null){
                 exceptionFound();
             } else {

@@ -15,9 +15,6 @@ public class HubRequest {
     public HubRequest(String msg, BluetoothSocket socket) {
         this.socket = socket;
         btMsg = msg;
-        if (socket.isConnected()) {
-            Log.d("Bluetooth", "Still Connected");
-        }
     }
 
     public void sendBtMsg(String msg2send){

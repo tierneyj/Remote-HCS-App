@@ -5,38 +5,61 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
 
         <LinearLayout
-            android:id="@+id/container_toolbar"
+            android:id="@+id/mainLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <include
-                android:id="@+id/toolbar"
-                layout="@layout/toolbar" />
+            <LinearLayout
+                android:id="@+id/container_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include
+                    android:id="@+id/toolbar"
+                    layout="@layout/toolbar" />
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/container_body"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" >
+
+                <android.support.design.widget.FloatingActionButton android:id="@+id/mainfab"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|end" android:layout_margin="@dimen/fab_margin"
+                    android:src="@drawable/ic_add"/>
+
+            </FrameLayout>
 
         </LinearLayout>
 
-        <FrameLayout
-            android:id="@+id/container_body"
+        <RelativeLayout
+            android:id="@+id/progressBarView"
             android:layout_width="fill_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" >
+            android:layout_height="fill_parent"
+            android:background="#33000000">
 
-            <android.support.design.widget.FloatingActionButton android:id="@+id/mainfab"
-                android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:layout_gravity="bottom|end" android:layout_margin="@dimen/fab_margin"
-                android:src="@drawable/ic_add"/>
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:progressDrawable="@drawable/circular_progress_bar"/>
 
-        </FrameLayout>
+        </RelativeLayout>
 
-    </LinearLayout>
+    </FrameLayout>
 
     <fragment
         android:id="@+id/fragment_navigation_drawer"

@@ -433,7 +433,8 @@ public class NextPatientFragment extends Fragment {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        search();
+                        mNoMatches.setVisibility(View.GONE);
+                        mSearch.setVisibility(View.VISIBLE);
                     }
                 }
         );
@@ -530,6 +531,7 @@ public class NextPatientFragment extends Fragment {
     private void showVisitResults(VisitResponse visitResponse) {
 
         MainActivity.patient.setVisits(new ArrayList<Visit>(Arrays.asList(visitResponse.getVisits())));
+        MainActivity.patient.setHistoryData(visitResponse.getHistory_data());
 
         for (int i = 0; i < MainActivity.patient.getVisits().size(); i++) {
             Log.d("Joseph", MainActivity.patient.getVisit(i).getDate());
