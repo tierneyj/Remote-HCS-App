@@ -1,10 +1,14 @@
 package com.remotehcs.remotehcs.activity;
 
-import android.app.Activity;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.app.FragmentTransaction;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +20,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.util.Log;
 import android.widget.ImageView;
@@ -35,6 +40,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.TimeZone;
 
@@ -55,6 +62,8 @@ public class NextPatientFragment extends Fragment {
     private View mResults;
     private View mNoMatches;
     private View mNewPatient;
+
+    private static final int DIALOG_ID = 0;
 
     public NextPatientFragment() {
         // Required empty public constructor
@@ -95,17 +104,13 @@ public class NextPatientFragment extends Fragment {
         });
 
         searchButtonListener();
+        selectButtonListener();
         clearListener();
 
         // Inflate the layout for this fragment
         return rootView;
     }
 
-
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-    }
 
     @Override
     public void onDetach() {
@@ -126,6 +131,21 @@ public class NextPatientFragment extends Fragment {
         );
     }
 
+    public void selectButtonListener() {
+        TextView searchButton = (TextView) mSearch.findViewById(R.id.dobTextView);
+        searchButton.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        DateDialog dateDialog = new DateDialog();
+                        android.support.v4.app.FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                        dateDialog.show(fragmentTransaction, "DatePicker");
+                    }
+                }
+        );
+    }
+
+
     public void search() {
 
         mResults.setVisibility(View.GONE);
@@ -134,6 +154,7 @@ public class NextPatientFragment extends Fragment {
 
         EditText fnameEditText = (EditText) mSearch.findViewById(R.id.fnameEditText);
         EditText lnameEditText = (EditText) mSearch.findViewById(R.id.lnameEditText);
+        TextView dobTextView = (TextView) mSearch.findViewById(R.id.dobTextView);
 
         String URL = "http://52.36.163.49:8000/api/records/patient-data";
 
@@ -142,31 +163,78 @@ public class NextPatientFragment extends Fragment {
         int count = 0;
 
         if (!fnameEditText.getText().toString().matches("")) {
-//            if (first) {
-//                URL += "?fname=" + fnameEditText.getText().toString();
-//                first = false;
-//            } else {
-//                URL += "&fname=" + fnameEditText.getText().toString();
-//            }
             URL += "?fname=" + fnameEditText.getText().toString();
             count++;
         }
 
         if (!lnameEditText.getText().toString().matches("")) {
-//            if (first) {
-//                URL += "?lname=" + lnameEditText.getText().toString();
-//                first = false;
-//            } else {
-//                URL += "&lname=" + lnameEditText.getText().toString();
-//            }
             URL += "&lname=" + lnameEditText.getText().toString();
             count++;
         }
 
-        if (count == 2) {
+        if (!dobTextView.getText().toString().equals("Date of Birth")) {
+            String year = dobTextView.getText().toString().substring(6);
+            String month = dobTextView.getText().toString().substring(0,2);
+            String day = dobTextView.getText().toString().substring(3,5);
+
+            String dob = year + "-" + month + "-" + day;
+            URL += "&dob=" + dob;
+            count++;
+        }
+
+        Log.d("Joseph", URL);
+
+        if (count == 3) {
             new HttpRequestTask().execute(URL);
         } else {
             Toast.makeText(getActivity(), "All fields must be filled.", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public static class DateDialog extends DialogFragment implements DatePickerDialog.OnDateSetListener{
+
+        TextView dobTextView;
+
+        public DateDialog() {
+
+
+        }
+
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+
+            dobTextView = (TextView) getActivity().findViewById(R.id.dobTextView);
+
+            if (dobTextView.getText().toString().equals("Date of Birth")) {
+                Calendar calendar = Calendar.getInstance();
+                int year = calendar.get(Calendar.YEAR);
+                int month = calendar.get(Calendar.MONTH);
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog dialog;
+                dialog = new DatePickerDialog(getActivity(),this,year,month,day);
+                dobTextView.setTextColor(Color.parseColor("#000000"));
+                return dialog;
+            } else {
+
+                int year = Integer.parseInt(dobTextView.getText().toString().substring(6));
+                int month = Integer.parseInt(dobTextView.getText().toString().substring(0,2)) - 1;
+                int day = Integer.parseInt(dobTextView.getText().toString().substring(3,5));
+
+                DatePickerDialog dialog;
+                dialog = new DatePickerDialog(getActivity(),this,year,month,day);
+
+                return dialog;
+            }
+        }
+
+        @Override
+        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+            GregorianCalendar gc = new GregorianCalendar();
+            gc.clear();
+            gc.set(year, monthOfYear, dayOfMonth);
+            Date date = new Date(gc.getTimeInMillis());
+            SimpleDateFormat dateFormatter = new SimpleDateFormat("MM/dd/yyyy");
+            dobTextView.setText(dateFormatter.format(date));
         }
     }
 
@@ -359,7 +427,7 @@ public class NextPatientFragment extends Fragment {
 
         EditText fnameEditTextSearch = (EditText) mSearch.findViewById(R.id.fnameEditText);
         EditText lnameEditTextSearch = (EditText) mSearch.findViewById(R.id.lnameEditText);
-        EditText dobEditTextSearch = (EditText) mSearch.findViewById(R.id.dobEditText);
+        TextView dobEditTextSearch = (TextView) mSearch.findViewById(R.id.dobTextView);
 
         EditText fnameEditText = (EditText) mNewPatient.findViewById(R.id.fnameEditText);
         EditText lnameEditText = (EditText) mNewPatient.findViewById(R.id.lnameEditText);
@@ -389,25 +457,65 @@ public class NextPatientFragment extends Fragment {
                         EditText homePhoneEditText = (EditText) mNewPatient.findViewById(R.id.homePhoneEditText);
                         EditText cellPhoneEditText = (EditText) mNewPatient.findViewById(R.id.cellPhoneEditText);
 
-                        MainActivity.patient.getPatientData().setFname(fnameEditText.getText().toString());
-                        MainActivity.patient.getPatientData().setLname(lnameEditText.getText().toString());
-                        MainActivity.patient.getPatientData().setDob(dobEditText.getText().toString());
-                        MainActivity.patient.getPatientData().setStatus(maritalStatuEditText.getText().toString());
-                        MainActivity.patient.getPatientData().setSex(genderEditText.getText().toString());
-                        MainActivity.patient.getPatientData().setAddress(addressEditText.getText().toString());
-                        MainActivity.patient.getPatientData().setCity(cityEditText.getText().toString());
-                        MainActivity.patient.getPatientData().setState(stateEditText.getText().toString());
-                        MainActivity.patient.getPatientData().setPostal_code(postalCodeEditText.getText().toString());
-                        MainActivity.patient.getPatientData().setCountry_code(countryCodeEditText.getText().toString());
-                        MainActivity.patient.getPatientData().setEmail(emailEditText.getText().toString());
-                        MainActivity.patient.getPatientData().setPhone_contact(homePhoneEditText.getText().toString());
-                        MainActivity.patient.getPatientData().setPhone_cell(cellPhoneEditText.getText().toString());
-                        MainActivity.patient.getPatientData().setGov_id("000003454");
-                        MainActivity.patient.getPatientData().setDate(timestamp());
+                        if (fnameEditText.getText().toString().matches("")) {
+                            Toast.makeText(getActivity(), "All fields must be filled.", Toast.LENGTH_LONG).show();
+                        } else if (lnameEditText.getText().toString().matches("")){
+                            Toast.makeText(getActivity(), "All fields must be filled.", Toast.LENGTH_LONG).show();
+                        } else if (maritalStatuEditText.getText().toString().matches("")){
+                            Log.d("Joseph", "marital empty");
+                            Toast.makeText(getActivity(), "All fields must be filled.", Toast.LENGTH_LONG).show();
+                        } else if (genderEditText.getText().toString().matches("")){
+                            Log.d("Joseph", "gender empty");
+                            Toast.makeText(getActivity(), "All fields must be filled.", Toast.LENGTH_LONG).show();
+                        } else if (addressEditText.getText().toString().matches("")){
+                            Toast.makeText(getActivity(), "All fields must be filled.", Toast.LENGTH_LONG).show();
+                        } else if (cityEditText.getText().toString().matches("")){
+                            Toast.makeText(getActivity(), "All fields must be filled.", Toast.LENGTH_LONG).show();
+                        } else if (stateEditText.getText().toString().matches("")){
+                            Toast.makeText(getActivity(), "All fields must be filled.", Toast.LENGTH_LONG).show();
+                        } else if (postalCodeEditText.getText().toString().matches("")){
+                            Toast.makeText(getActivity(), "All fields must be filled.", Toast.LENGTH_LONG).show();
+                        } else if (countryCodeEditText.getText().toString().matches("")){
+                            Toast.makeText(getActivity(), "All fields must be filled.", Toast.LENGTH_LONG).show();
+                        } else if (emailEditText.getText().toString().matches("")){
+                            Toast.makeText(getActivity(), "All fields must be filled.", Toast.LENGTH_LONG).show();
+                        } else if (homePhoneEditText.getText().toString().matches("")){
+                            Toast.makeText(getActivity(), "All fields must be filled.", Toast.LENGTH_LONG).show();
+                        } else if (cellPhoneEditText.getText().toString().matches("")){
+                            Toast.makeText(getActivity(), "All fields must be filled.", Toast.LENGTH_LONG).show();
+                        } else if (lnameEditText.getText().toString().matches("")){
+                            Toast.makeText(getActivity(), "All fields must be filled.", Toast.LENGTH_LONG).show();
+                        } else {
 
-                        MainActivity.patient.getMetadata().setPatient_exists("No");
+                            //set patient's first and last names
+                            MainActivity.patient.getPatientData().setFname(fnameEditText.getText().toString());
+                            MainActivity.patient.getPatientData().setLname(lnameEditText.getText().toString());
 
-                        ((MainActivity)getActivity()).displayView(1);
+                            //parse dob to yyyy-mm-dd format
+                            String year = dobEditText.getText().toString().substring(6);
+                            String month = dobEditText.getText().toString().substring(0, 2);
+                            String day = dobEditText.getText().toString().substring(3, 5);
+                            String dob = year + "-" + month + "-" + day;
+
+                            MainActivity.patient.getPatientData().setDob(dobEditText.getText().toString());
+                            MainActivity.patient.getPatientData().setStatus(maritalStatuEditText.getText().toString());
+                            MainActivity.patient.getPatientData().setSex(genderEditText.getText().toString());
+                            MainActivity.patient.getPatientData().setAddress(addressEditText.getText().toString());
+                            MainActivity.patient.getPatientData().setCity(cityEditText.getText().toString());
+                            MainActivity.patient.getPatientData().setState(stateEditText.getText().toString());
+                            MainActivity.patient.getPatientData().setPostal_code(postalCodeEditText.getText().toString());
+                            MainActivity.patient.getPatientData().setCountry_code(countryCodeEditText.getText().toString());
+                            MainActivity.patient.getPatientData().setEmail(emailEditText.getText().toString());
+                            MainActivity.patient.getPatientData().setPhone_contact(homePhoneEditText.getText().toString());
+                            MainActivity.patient.getPatientData().setPhone_cell(cellPhoneEditText.getText().toString());
+                            MainActivity.patient.getPatientData().setGov_id("000003454");
+                            MainActivity.patient.getPatientData().setDate(timestamp());
+
+                            MainActivity.patient.getMetadata().setPatient_exists("No");
+
+                            ((MainActivity) getActivity()).displayView(1);
+
+                        }
                     }
                 }
         );

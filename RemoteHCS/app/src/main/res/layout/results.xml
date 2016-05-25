@@ -28,7 +28,7 @@
 
     <LinearLayout
         android:id="@+id/buttons"
-        android:layout_above="@+id/newPatientLabel"
+        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -38,40 +38,31 @@
             android:id="@+id/showMoreButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="14dp"
             android:text="Show More Results"
-            android:fontFamily="droid"
-            android:textColor="@drawable/text_button"
-            android:textAllCaps="false"
-            android:textSize="25sp"
-            android:background="@android:color/transparent"
-            android:visibility="gone"/>
+            android:visibility="gone"
+            android:textColor="#ffffff"
+            android:theme="@style/DefaultButton"/>
 
 
         <Button
             android:id="@+id/editSearchButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="7dp"
             android:text="Edit Search"
-            android:fontFamily="droid"
-            android:textColor="@drawable/text_button"
-            android:textAllCaps="false"
-            android:textSize="25sp"
-            android:background="@android:color/transparent"/>
+            android:textColor="#ffffff"
+            android:theme="@style/DefaultButton"/>
+
+        <Button
+            android:id="@+id/newPatientLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:text="New Patient"
+            android:textColor="#ffffff"
+            android:theme="@style/DefaultButton"/>
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/newPatientLabel"
-        android:layout_marginTop="5dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="Click here to add a new patient."
-        android:gravity="center_horizontal"
-        android:layout_centerHorizontal="true"
-        android:textColorLink="@color/colorPrimary"
-        android:textSize="20dp"/>
 
 </RelativeLayout>

@@ -1,19 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" >
-
-    <item
-        jar="/Users/jeltierney/.gradle/caches/modules-2/files-2.1/org.springframework.android/spring-android-rest-template/2.0.0.M3/204c594c2a47073b30d3cb14ca69ba1066c4e44c/spring-android-rest-template-2.0.0.M3.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="204c594c2a47073b30d3cb14ca69ba1066c4e44c">
-        <dex dex="/Users/jeltierney/Documents/BU 2016 Spring/Senior Design/Remote-HCS-App/RemoteHCS/app/build/intermediates/pre-dexed/debug/spring-android-rest-template-2.0.0.M3-6e345af86c37a380cfb8934f01713d9c54562b8f.jar" />
-    </item>
-    <item
-        jar="/Users/jeltierney/.gradle/caches/modules-2/files-2.1/org.springframework.android/spring-android-core/2.0.0.M3/c7e2c60943248bbce5de6cf552592281ed2296b/spring-android-core-2.0.0.M3.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="0c7e2c60943248bbce5de6cf552592281ed2296b">
-        <dex dex="/Users/jeltierney/Documents/BU 2016 Spring/Senior Design/Remote-HCS-App/RemoteHCS/app/build/intermediates/pre-dexed/debug/spring-android-core-2.0.0.M3-eea6ffeb55817909dcf8765c0ef3612758ea26bf.jar" />
-    </item>
-
-</items>
+<items version="2" />

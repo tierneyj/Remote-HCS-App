@@ -72,11 +72,12 @@ public class LoginActivity extends AppCompatActivity {
         intent.putExtra("user", username);
         intent.putExtra("offlineMode", offlineMode);
         startActivity(intent);
+        progressSpinner.setVisibility(View.GONE);
     }
 
     private void exceptionFound() {
         Toast.makeText(getApplicationContext(), "Incorrect username or password.", Toast.LENGTH_LONG).show();
-        //Log.d("Joseph", "Exception");
+        progressSpinner.setVisibility(View.GONE);
     }
 
     private class Authenticate extends AsyncTask<Void, Void, LoginResponse> {
@@ -141,7 +142,6 @@ public class LoginActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(LoginResponse response) {
             super.onPostExecute(response);
-            progressSpinner.setVisibility(View.GONE);
             if (exceptionToBeThrown != null){
                 exceptionFound();
             } else {

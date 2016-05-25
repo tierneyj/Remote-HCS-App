@@ -11,6 +11,7 @@ import android.support.v4.app.FragmentManager;
 import android.text.Html;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -162,8 +163,25 @@ public class NewVisitFragment extends Fragment {
     }
 
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
+    public void onResume() {
+        super.onResume();
+        getView().setFocusableInTouchMode(true);
+        getView().requestFocus();
+        getView().setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+
+                if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
+
+                    if (position != 0) {
+                        progress[position - 1].setChecked(true);
+                    }
+
+                    return true;
+                }
+                return false;
+            }
+        });
     }
 
     @Override
@@ -203,7 +221,7 @@ public class NewVisitFragment extends Fragment {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (MainActivity.mmSocket.isConnected()) {
+                        if (MainActivity.connectedToHub) {
                             views[4].setVisibility(View.GONE);
                             views[4] = mGlucoseConnectedView;
                             views[4].setVisibility(View.VISIBLE);
@@ -226,7 +244,7 @@ public class NewVisitFragment extends Fragment {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (MainActivity.mmSocket.isConnected()) {
+                        if (MainActivity.connectedToHub) {
                             views[5].setVisibility(View.GONE);
                             views[5] = mBpConnectedView;
                             views[5].setVisibility(View.VISIBLE);
@@ -268,7 +286,6 @@ public class NewVisitFragment extends Fragment {
                 }
         );
     }
-
 
     public void uploadButtonListener() {
         uploadButton.setOnClickListener(
@@ -654,18 +671,7 @@ public class NewVisitFragment extends Fragment {
         protected void onPostExecute(String response) {
             super.onPostExecute(response);
             if (response.equals("201")) {
-                Toast.makeText(getActivity().getApplicationContext(), "Record Successfully Uploaded", Toast.LENGTH_LONG).show();
-//
-//                Fragment fragment = new NextPatientFragment();
-//
-//                getActivity().title = getString(R.string.next_patient);
-//
-//                MainActivity.fragmentManager = getActivity().getSupportFragmentManager();
-//                FragmentTransaction fragmentTransaction = MainActivity.fragmentManager.beginTransaction();
-//                fragmentTransaction.replace(R.id.container_body, fragment);
-//                fragmentTransaction.commit();
-//
-//                MainActivity.topo().setTitle(title);
+                Toast.makeText(getActivity().getApplicationContext(), "Record Successfully Update", Toast.LENGTH_LONG).show();
             }
             Log.d("Joseph", response);
         }

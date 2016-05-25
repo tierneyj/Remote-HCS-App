@@ -162,32 +162,60 @@
 
             <RadioButton
                 android:id="@+id/radioOne"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_margin="10dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/progress_circle"
+                android:button="@android:color/transparent"/>
             <RadioButton
                 android:id="@+id/radioTwo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_margin="10dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/progress_circle"
+                android:button="@android:color/transparent"/>
             <RadioButton
                 android:id="@+id/radioThree"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_margin="10dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/progress_circle"
+                android:button="@android:color/transparent"/>
             <RadioButton
                 android:id="@+id/radioFour"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_margin="10dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/progress_circle"
+                android:button="@android:color/transparent"/>
             <RadioButton
                 android:id="@+id/radioFive"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_margin="10dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/progress_circle"
+                android:button="@android:color/transparent"/>
             <RadioButton
                 android:id="@+id/radioSix"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_margin="10dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/progress_circle"
+                android:button="@android:color/transparent"/>
             <RadioButton
                 android:id="@+id/radioSeven"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_margin="10dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/progress_circle"
+                android:button="@android:color/transparent"/>
 
         </RadioGroup>
 

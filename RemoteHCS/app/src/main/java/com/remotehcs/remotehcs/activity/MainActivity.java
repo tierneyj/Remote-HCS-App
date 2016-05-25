@@ -8,7 +8,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -21,28 +20,15 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewTreeObserver;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.StringWriter;
 import java.lang.reflect.Method;
 import java.util.Calendar;
 import java.util.Set;
 
 import com.remotehcs.remotehcs.R;
-import com.remotehcs.remotehcs.bluetooth.HubRequest;
-import com.remotehcs.remotehcs.record.PatientData;
 import com.remotehcs.remotehcs.record.Record;
 import com.remotehcs.remotehcs.record.Visit;
 
@@ -119,19 +105,11 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
 
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
-    }
-
-    @Override
-    public void onBackPressed() {
-        //Display alert message when back button has been pressed
-        Log.d("Joseph", "Back Button Pressed");
-        return;
     }
 
     @Override
@@ -236,7 +214,8 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
                 progressSpinner.setVisibility(View.GONE);
                 AlertDialog alertDialog1 = new AlertDialog.Builder(MainActivity.this).create();
                 alertDialog1.setTitle("Bluetooth Not Supported");
-                alertDialog1.setMessage("This Android device does not support bluetooth. Continuing without connection to device hub.");
+                alertDialog1.setMessage("This Android device does not support bluetooth." +
+                        " Continuing without connection to device hub.");
                 alertDialog1.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
@@ -260,7 +239,8 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
                 progressSpinner.setVisibility(View.GONE);
                 AlertDialog alertDialog3 = new AlertDialog.Builder(MainActivity.this).create();
                 alertDialog3.setTitle("Connection Failed");
-                alertDialog3.setMessage("Conneciton with hub could not be established. Continue without connection to device hub?");
+                alertDialog3.setMessage("Conneciton with hub could not be established." +
+                        " Continue without connection to device hub?");
                 alertDialog3.setButton(AlertDialog.BUTTON_POSITIVE, "Continue",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
@@ -284,7 +264,8 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
                 progressSpinner.setVisibility(View.GONE);
                 AlertDialog alertDialog4 = new AlertDialog.Builder(MainActivity.this).create();
                 alertDialog4.setTitle("Hub Not Paired");
-                alertDialog4.setMessage("This Android device has not been paired with a RemoteHcs device hub. Continuing without connection to device hub.");
+                alertDialog4.setMessage("This Android device has not been paired with a RemoteHcs" +
+                        " device hub. Continuing without connection to device hub.");
                 alertDialog4.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
@@ -301,7 +282,8 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
                 progressSpinner.setVisibility(View.GONE);
                 AlertDialog alertDialog5 = new AlertDialog.Builder(MainActivity.this).create();
                 alertDialog5.setTitle("Bluetooth Not Enabled");
-                alertDialog5.setMessage("Bluetooth is not enabled on this Android device. Continuing without connection to device hub.");
+                alertDialog5.setMessage("Bluetooth is not enabled on this Android device." +
+                        " Continuing without connection to device hub.");
                 alertDialog5.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {

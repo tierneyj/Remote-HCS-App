@@ -64,7 +64,7 @@ public class PatientData
 
     public void setMname (String mname)
     {
-        this.mname = mname;
+        this.mname = capitalize(mname);
     }
 
     public String getLname ()
@@ -74,7 +74,7 @@ public class PatientData
 
     public void setLname (String lname)
     {
-        this.lname = lname;
+        this.lname = capitalize(lname);
     }
 
     public String getSex ()
@@ -224,6 +224,16 @@ public class PatientData
 
     public void setFname (String fname)
     {
-        this.fname = fname;
+        this.fname = capitalize(fname);
+    }
+
+    private String capitalize (String str) {
+        if (str.length() > 0) {
+            str = str.substring(0,1).toUpperCase() + str.substring(1);
+        } else {
+            str = str.toUpperCase();
+        }
+
+        return str;
     }
 }

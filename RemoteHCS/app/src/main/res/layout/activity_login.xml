@@ -10,16 +10,16 @@
         android:id="@+id/progressBarView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#33ffffff">
+        android:background="#80ffffff">
 
         <ProgressBar
             android:id="@+id/progressBar"
             style="?android:attr/progressBarStyleLarge"
             android:layout_centerInParent="true"
             android:layout_gravity="center"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:progressDrawable="@drawable/circular_progress_bar"/>
+            android:layout_width="150dp"
+            android:layout_height="150dp"/>
+
     </RelativeLayout>
 
     <RelativeLayout
@@ -77,11 +77,13 @@
             android:layout_centerInParent="true"
             android:gravity="center"
             android:hint="@string/username"
-            android:text="admin"
+            android:text="tierney"
             android:textAlignment="center"
             android:textColor="#ffffff"
-            android:inputType="textWebEditText"
-            android:textSize="25dp"/>
+            android:inputType="text"
+            android:textSize="25dp"
+            android:backgroundTint="@color/lightAccent"
+            android:textCursorDrawable="@null"/>
 
         <EditText
             android:id="@+id/passwordEditText"
@@ -96,7 +98,9 @@
             android:text="seniordesign15"
             android:textColor="#ffffff"
             android:inputType="textWebPassword"
-            android:textSize="25dp"/>
+            android:textSize="25dp"
+            android:backgroundTint="@color/lightAccent"
+            android:textCursorDrawable="@null"/>
 
         <Button
             android:id="@+id/loginButton"
@@ -104,14 +108,12 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/passwordEditText"
             android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:layout_centerInParent="true"
-            android:text="Login"
-            android:fontFamily="droid"
-            android:textColor="#ffffff"
-            android:textAllCaps="false"
             android:textSize="25sp"
-            android:background="@android:color/transparent"/>
+            android:gravity="center"
+            android:text="Login"
+            android:textColor="#ffffff"
+            android:layout_centerInParent="true"
+            style="@style/Widget.AppCompat.Button.Borderless"/>
 
     </RelativeLayout>
 
